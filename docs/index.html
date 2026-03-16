@@ -439,8 +439,13 @@
   .toast.success { border-color: var(--green); }
   .toast.error { border-color: var(--urgent); }
 
-  /* Run Scan button */
-  .btn-scan {
+  /* Header action buttons */
+  .header-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .btn-pipeline {
     background: linear-gradient(135deg, var(--primary), var(--purple));
     color: white;
     padding: 10px 20px;
@@ -451,8 +456,41 @@
     cursor: pointer;
     transition: all 0.15s;
     white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
-  .btn-scan:hover { filter: brightness(1.15); }
+  .btn-pipeline:hover { filter: brightness(1.15); }
+  .btn-pipeline:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    filter: none;
+  }
+  .btn-pipeline .spinner-small {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  .btn-scan-prompt {
+    background: transparent;
+    color: var(--text-muted);
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .btn-scan-prompt:hover {
+    color: var(--text);
+    border-color: var(--text-muted);
+  }
 
   @media (max-width: 640px) {
     .header { padding: 16px; }
@@ -483,7 +521,10 @@
       <div class="stat-value" id="queueSizeDisplay">0</div>
       <div class="stat-label">Queue</div>
     </div>
-    <button class="btn-scan" id="runScanBtn" title="Copy scan prompt to clipboard and open Claude">Run Scan</button>
+    <div class="header-actions">
+      <button class="btn-pipeline" id="runPipelineBtn" title="Trigger scoring pipeline via GitHub Actions">Run Pipeline</button>
+      <button class="btn-scan-prompt" id="copyScanBtn" title="Copy LinkedIn scan prompt to clipboard">Copy Scan Prompt</button>
+    </div>
   </div>
 </div>
 
@@ -989,7 +1030,99 @@
 
   document.getElementById("saveSettingsBtn").addEventListener("click", saveSettings);
 
-  // ── Run Scan button ──
+  // ── Run Pipeline button ──
+  async function triggerPipeline() {
+    const pat = getPAT();
+    const owner = getOwner();
+    const repo = getRepo();
+    const branch = getBranch();
+
+    if (!pat || !owner || !repo) {
+      showToast("Set GitHub PAT, owner, and repo in Settings first", "error");
+      return;
+    }
+
+    const btn = document.getElementById("runPipelineBtn");
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner-small"></span> Pipeline running...';
+
+    try {
+      const resp = await fetch(
+        `${GITHUB_API}/repos/${owner}/${repo}/actions/workflows/score-posts.yml/dispatches`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `token ${pat}`,
+            Accept: "application/vnd.github.v3+json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ ref: branch }),
+        }
+      );
+
+      if (resp.status === 204) {
+        showToast("Pipeline triggered — scoring will take 1-2 minutes", "success");
+        // Poll for completion
+        pollPipelineStatus(owner, repo, pat, branch, btn);
+      } else {
+        const err = await resp.json().catch(() => ({}));
+        showToast("Failed to trigger pipeline: " + (err.message || resp.status), "error");
+        btn.disabled = false;
+        btn.textContent = "Run Pipeline";
+      }
+    } catch (err) {
+      showToast("Network error: " + err.message, "error");
+      btn.disabled = false;
+      btn.textContent = "Run Pipeline";
+    }
+  }
+
+  async function pollPipelineStatus(owner, repo, pat, branch, btn) {
+    const headers = {
+      Authorization: `token ${pat}`,
+      Accept: "application/vnd.github.v3+json",
+    };
+
+    let attempts = 0;
+    const maxAttempts = 30; // 30 * 5s = 2.5 minutes max
+
+    const poll = setInterval(async () => {
+      attempts++;
+      try {
+        const resp = await fetch(
+          `${GITHUB_API}/repos/${owner}/${repo}/actions/runs?branch=${encodeURIComponent(branch)}&per_page=1`,
+          { headers }
+        );
+        if (resp.ok) {
+          const data = await resp.json();
+          const run = data.workflow_runs && data.workflow_runs[0];
+          if (run && run.status === "completed") {
+            clearInterval(poll);
+            if (run.conclusion === "success") {
+              showToast("Pipeline complete — refreshing data", "success");
+              await loadAllData();
+            } else {
+              showToast("Pipeline finished with status: " + run.conclusion, "error");
+            }
+            btn.disabled = false;
+            btn.textContent = "Run Pipeline";
+            return;
+          }
+        }
+      } catch {}
+
+      if (attempts >= maxAttempts) {
+        clearInterval(poll);
+        showToast("Pipeline still running — check Actions tab for status", "");
+        btn.disabled = false;
+        btn.textContent = "Run Pipeline";
+      }
+    }, 5000);
+  }
+
+  document.getElementById("runPipelineBtn").addEventListener("click", triggerPipeline);
+
+  // ── Copy Scan Prompt button ──
   function buildScanPrompt() {
     const hashtags = (config.hashtags || []).join(", ") || "#businessintelligence, #selfservicebi, #dataanalytics, #aisecurity, #chatgpt, #microsoftcopilot, #powerbi, #operationalexcellence";
     const competitors = (config.competitors || []).map(c => `${c.name} (${c.type}): ${c.url || "search LinkedIn"}`).join("\n") || "ThoughtSpot, Zenlytic, WisdomAI";
@@ -1048,13 +1181,11 @@ HARD RULES:
 - Only access pages Tom already follows or that are publicly visible`;
   }
 
-  document.getElementById("runScanBtn").addEventListener("click", async () => {
+  document.getElementById("copyScanBtn").addEventListener("click", async () => {
     const prompt = buildScanPrompt();
     try {
       await navigator.clipboard.writeText(prompt);
-      showToast("Scan prompt copied to clipboard", "success");
     } catch {
-      // Fallback: select from a temporary textarea
       const ta = document.createElement("textarea");
       ta.value = prompt;
       ta.style.position = "fixed";
@@ -1063,9 +1194,8 @@ HARD RULES:
       ta.select();
       document.execCommand("copy");
       document.body.removeChild(ta);
-      showToast("Scan prompt copied to clipboard", "success");
     }
-    window.open("https://claude.ai", "_blank");
+    showToast("Scan prompt copied to clipboard", "success");
   });
 
   // Expose actions globally for onclick handlers
