@@ -526,6 +526,12 @@
     </div>
 
     <div class="settings-section">
+      <div class="settings-label">GitHub Branch</div>
+      <div class="settings-hint">Branch where data files are stored. Must match the branch your pipeline commits to.</div>
+      <input type="text" class="settings-input" id="settingsBranch" placeholder="e.g. main" value="claude/linkedin-comment-dashboard-dcd70">
+    </div>
+
+    <div class="settings-section">
       <div class="settings-label">Score Threshold</div>
       <div class="settings-hint">Minimum score for a post to appear in the queue (current: <span id="thresholdValue">6</span>)</div>
       <div class="slider-container">
@@ -562,7 +568,7 @@
   let scoredData = { last_run: null, posts: [] };
   let logData = [];
   const GITHUB_API = "https://api.github.com";
-  const DATA_BRANCH = "main";
+  const DEFAULT_BRANCH = "claude/linkedin-comment-dashboard-dcd70";
 
   // ── Helpers ──
   function getPAT() {
@@ -573,6 +579,9 @@
   }
   function getRepo() {
     return localStorage.getItem("gh_repo") || "";
+  }
+  function getBranch() {
+    return localStorage.getItem("gh_branch") || DEFAULT_BRANCH;
   }
 
   function showToast(msg, type) {
@@ -613,7 +622,7 @@
     const repo = getRepo();
     if (!owner || !repo) return null;
 
-    const url = `${GITHUB_API}/repos/${owner}/${repo}/contents/${filePath}?ref=${DATA_BRANCH}&_=${Date.now()}`;
+    const url = `${GITHUB_API}/repos/${owner}/${repo}/contents/${filePath}?ref=${getBranch()}&_=${Date.now()}`;
     const headers = { Accept: "application/vnd.github.v3+json" };
     const pat = getPAT();
     if (pat) headers.Authorization = `token ${pat}`;
@@ -638,7 +647,7 @@
     const body = {
       message: message || `Update ${filePath}`,
       content: btoa(unescape(encodeURIComponent(JSON.stringify(content, null, 2)))),
-      branch: DATA_BRANCH,
+      branch: getBranch(),
     };
     if (sha) body.sha = sha;
 
@@ -890,6 +899,7 @@
     document.getElementById("settingsPAT").value = getPAT();
     document.getElementById("settingsOwner").value = getOwner();
     document.getElementById("settingsRepo").value = getRepo();
+    document.getElementById("settingsBranch").value = getBranch();
     document.getElementById("settingsThreshold").value = config.score_threshold || 6;
     document.getElementById("thresholdDisplay").textContent = config.score_threshold || 6;
     document.getElementById("thresholdValue").textContent = config.score_threshold || 6;
@@ -901,6 +911,7 @@
     const pat = document.getElementById("settingsPAT").value.trim();
     const owner = document.getElementById("settingsOwner").value.trim();
     const repo = document.getElementById("settingsRepo").value.trim();
+    const branch = document.getElementById("settingsBranch").value.trim() || DEFAULT_BRANCH;
     const threshold = parseInt(document.getElementById("settingsThreshold").value);
     const hashtags = document.getElementById("settingsHashtags").value
       .split("\n")
@@ -919,6 +930,7 @@
     localStorage.setItem("gh_pat", pat);
     localStorage.setItem("gh_owner", owner);
     localStorage.setItem("gh_repo", repo);
+    localStorage.setItem("gh_branch", branch);
 
     // Write config to repo
     const newConfig = {
