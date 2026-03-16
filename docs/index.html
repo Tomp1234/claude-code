@@ -646,7 +646,9 @@
     const resp = await fetch(url, { headers });
     if (!resp.ok) return null;
     const data = await resp.json();
-    const content = atob(data.content.replace(/\n/g, ""));
+    const binary = atob(data.content.replace(/\n/g, ""));
+    const bytes = Uint8Array.from(binary, c => c.charCodeAt(0));
+    const content = new TextDecoder().decode(bytes);
     return { parsed: JSON.parse(content), sha: data.sha };
   }
 
@@ -662,7 +664,7 @@
     const url = `${GITHUB_API}/repos/${owner}/${repo}/contents/${filePath}`;
     const body = {
       message: message || `Update ${filePath}`,
-      content: btoa(unescape(encodeURIComponent(JSON.stringify(content, null, 2)))),
+      content: btoa(Array.from(new TextEncoder().encode(JSON.stringify(content, null, 2)), b => String.fromCharCode(b)).join("")),
       branch: getBranch(),
     };
     if (sha) body.sha = sha;
