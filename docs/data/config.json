@@ -1,6 +1,6 @@
 {
-  "owner": "",
-  "repo": "",
+  "owner": "Tomp1234",
+  "repo": "claude-code",
   "score_threshold": 6,
   "hashtags": [
     "#businessintelligence",
@@ -13,10 +13,30 @@
     "#operationalexcellence"
   ],
   "competitors": [
-    { "name": "ThoughtSpot", "type": "company", "url": "" },
-    { "name": "Zenlytic", "type": "company", "url": "" },
-    { "name": "Zenlytic Founder", "type": "profile", "url": "" },
-    { "name": "WisdomAI", "type": "company", "url": "" },
-    { "name": "WisdomAI Founder", "type": "profile", "url": "" }
+    {
+      "name": "ThoughtSpot",
+      "type": "company",
+      "url": ""
+    },
+    {
+      "name": "Zenlytic",
+      "type": "company",
+      "url": ""
+    },
+    {
+      "name": "Zenlytic Founder",
+      "type": "profile",
+      "url": ""
+    },
+    {
+      "name": "WisdomAI",
+      "type": "company",
+      "url": ""
+    },
+    {
+      "name": "WisdomAI Founder",
+      "type": "profile",
+      "url": ""
+    }
   ]
 }
