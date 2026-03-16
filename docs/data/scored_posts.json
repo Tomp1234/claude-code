@@ -1,10 +1,10 @@
 {
-  "last_run": "2026-03-16T08:35:00.000Z",
+  "last_run": "2026-03-16T17:36:14.746Z",
   "posts": [
     {
       "post_id": "urn:li:activity:7301234567894",
-      "source_type": "feed",
-      "source_name": "feed",
+      "source_type": "hashtag",
+      "source_name": "#chatgpt",
       "author_name": "Dr. Karen Walsh",
       "author_title": "Chief Risk Officer",
       "author_company": "Summit Financial",
@@ -15,15 +15,33 @@
       "comment_count": 89,
       "is_suggested": true,
       "icp_commenters": [
-        { "name": "Tom Buckley", "title": "VP Operations", "company": "FinServe Group" },
-        { "name": "Nina Okafor", "title": "Chief Operating Officer", "company": "Clearview Advisors" },
-        { "name": "Robert Lang", "title": "CEO", "company": "Precision Analytics (120 employees)" }
+        {
+          "name": "Tom Buckley",
+          "title": "VP Operations",
+          "company": "FinServe Group"
+        },
+        {
+          "name": "Nina Okafor",
+          "title": "Chief Operating Officer",
+          "company": "Clearview Advisors"
+        },
+        {
+          "name": "Robert Lang",
+          "title": "CEO",
+          "company": "Precision Analytics (120 employees)"
+        }
       ],
-      "score": 10,
-      "score_breakdown": { "topic_fit": 3, "icp_engagement": 3, "recency": 2, "comment_value": 2, "reach_bonus": 1 },
-      "angle": "AI trust gap thread with 3 ICP prospects (VP Ops, COO, CEO) — validate the compliance pain with a real-world example of what 'explainable' actually looks like in practice",
-      "draft_comment": "This is the exact conversation I keep having with ops leaders. The issue isn't whether AI can generate the right number — it's whether anyone in the room can explain how it got there. Most BI tools already had this problem before AI made it worse. At least with a spreadsheet someone could trace the formula.",
-      "scored_at": "2026-03-16T08:35:12.000Z"
+      "score": 11,
+      "score_breakdown": {
+        "topic_fit": 3,
+        "icp_engagement": 3,
+        "recency": 2,
+        "comment_value": 2,
+        "reach_bonus": 1
+      },
+      "angle": "High-value CRO post with three ICP prospects engaging — validate the compliance pain around unexplainable AI output, add the 'auditability gap' insight without pitching",
+      "draft_comment": "The 'GPT said so' answer is going to end careers before it ends the AI trend. The real issue isn't accuracy — it's that most AI tools produce a result with no visible working. Finance and compliance teams don't just need the right number, they need the trail that leads to it. How many analytics tools today can actually hand you that?",
+      "scored_at": "2026-03-16T17:36:00.260Z"
     },
     {
       "post_id": "urn:li:activity:7301234567890",
@@ -39,59 +57,28 @@
       "comment_count": 34,
       "is_suggested": true,
       "icp_commenters": [
-        { "name": "James Thornton", "title": "VP Operations", "company": "Meridian Group" },
-        { "name": "Rachel Dunn", "title": "Director of Operations", "company": "Apex Partners" }
+        {
+          "name": "James Thornton",
+          "title": "VP Operations",
+          "company": "Meridian Group"
+        },
+        {
+          "name": "Rachel Dunn",
+          "title": "Director of Operations",
+          "company": "Apex Partners"
+        }
       ],
-      "score": 9,
-      "score_breakdown": { "topic_fit": 3, "icp_engagement": 2, "recency": 2, "comment_value": 2, "reach_bonus": 1 },
-      "angle": "ICP prospect (COO at 140-person consultancy) frustrated with Power BI adoption — validate the trust problem, don't pitch",
-      "draft_comment": "I reckon this is the same pattern every time. The building part is easy. Getting your CFO to trust it enough to quote numbers in a board meeting? That takes years not sprints. The teams that crack it usually start with one metric everyone already agrees on and build trust outward from there.",
-      "scored_at": "2026-03-16T08:35:15.000Z"
-    },
-    {
-      "post_id": "urn:li:activity:7301234567892",
-      "source_type": "competitor",
-      "source_name": "ThoughtSpot",
-      "author_name": "ThoughtSpot",
-      "author_title": "Company Page",
-      "author_company": "ThoughtSpot",
-      "post_text": "Enterprise analytics teams are wasting 40% of their time on ad-hoc reporting requests. Our new AI-Powered Analytics eliminates the bottleneck entirely. See how Fortune 500 companies are scaling their data teams with ThoughtSpot. #analytics #enterprise",
-      "post_url": "https://www.linkedin.com/feed/update/urn:li:activity:7301234567892",
-      "timestamp": "5h ago",
-      "reaction_count": 234,
-      "comment_count": 18,
-      "is_suggested": false,
-      "icp_commenters": [
-        { "name": "David Chen", "title": "CEO", "company": "Bright Analytics (85 employees)" },
-        { "name": "Priya Sharma", "title": "COO", "company": "DataFlow Solutions" }
-      ],
-      "score": 8,
-      "score_breakdown": { "topic_fit": 2, "icp_engagement": 2, "recency": 2, "comment_value": 2, "reach_bonus": 0 },
-      "angle": "ThoughtSpot pushing enterprise framing with Fortune 500 — challenge with mid-market reality where 'eliminating the bottleneck' means something very different",
-      "draft_comment": "Genuine question — does 'eliminating ad-hoc requests' actually work at the 50-200 person company level? In my experience the bottleneck isn't volume of requests, it's that nobody trusts the self-serve option enough to stop asking. Fortune 500 can throw analysts at the problem. Mid-market can't.",
-      "scored_at": "2026-03-16T08:35:18.000Z"
-    },
-    {
-      "post_id": "urn:li:activity:7301234567904",
-      "source_type": "feed",
-      "source_name": "feed",
-      "author_name": "Chris Whitfield",
-      "author_title": "CEO",
-      "author_company": "BrightPath Advisory (65 employees)",
-      "post_text": "Had a fascinating conversation with a client yesterday. They spent £200k on a BI platform and the only person who can use it is the one who built it. Self-service my arse. The gap between what vendors promise and what actually happens in a 50-person company is enormous. When will the industry admit that most BI tools are built for data teams, not business teams?",
-      "post_url": "https://www.linkedin.com/feed/update/urn:li:activity:7301234567904",
-      "timestamp": "50m ago",
-      "reaction_count": 89,
-      "comment_count": 41,
-      "is_suggested": false,
-      "icp_commenters": [
-        { "name": "Helen Cross", "title": "COO", "company": "Sterling Consulting" }
-      ],
-      "score": 8,
-      "score_breakdown": { "topic_fit": 3, "icp_engagement": 1, "recency": 2, "comment_value": 2, "reach_bonus": 0 },
-      "angle": "CEO of 65-person advisory firm calling out self-service BI gap — validate with the 'built for data teams not business teams' angle",
-      "draft_comment": "The £200k BI platform where one person holds the keys — that's not a technology failure, it's a design assumption. Most tools assume you've got a data team to maintain them. At 50 people you haven't. So the person who built it becomes the bottleneck they were trying to eliminate. Seen it dozens of times.",
-      "scored_at": "2026-03-16T08:35:20.000Z"
+      "score": 10,
+      "score_breakdown": {
+        "topic_fit": 3,
+        "icp_engagement": 2,
+        "recency": 2,
+        "comment_value": 2,
+        "reach_bonus": 1
+      },
+      "angle": "ICP prospect COO at 140-person consultancy hit the classic adoption wall — validate that trust is the real product, not the dashboard",
+      "draft_comment": "18 months is actually pretty normal for this — the dashboard was never the problem. Finance teams have been burned by numbers that looked right but weren't, so Excel feels safer because at least they know where the mistakes live. The real work is building enough of a track record that someone's willing to stake their reputation on a number they didn't personally pull. How many times did the dashboard have to be wrong before they stopped checking it?",
+      "scored_at": "2026-03-16T17:36:01.083Z"
     },
     {
       "post_id": "urn:li:activity:7301234567898",
@@ -107,13 +94,23 @@
       "comment_count": 56,
       "is_suggested": true,
       "icp_commenters": [
-        { "name": "Claire Ashton", "title": "Director of Operations", "company": "Summit Group" }
+        {
+          "name": "Claire Ashton",
+          "title": "Director of Operations",
+          "company": "Summit Group"
+        }
       ],
-      "score": 7.5,
-      "score_breakdown": { "topic_fit": 2, "icp_engagement": 1, "recency": 2, "comment_value": 2, "reach_bonus": 1 },
-      "angle": "VP Ops calling dashboards vanity projects — agree and extend with the 'explain not just show' insight, ICP Director of Ops engaging",
-      "draft_comment": "47 KPIs to 5 is the right direction but I'd push it further. The 5 that survived — were they the ones people already understood, or the ones that actually mattered? Usually they're not the same thing. The real test isn't 'does anyone look at it' but 'has anyone changed a decision because of it'.",
-      "scored_at": "2026-03-16T08:35:22.000Z"
+      "score": 9,
+      "score_breakdown": {
+        "topic_fit": 3,
+        "icp_engagement": 1,
+        "recency": 2,
+        "comment_value": 2,
+        "reach_bonus": 1
+      },
+      "angle": "ICP prospect (Director of Operations at Summit Group) engaging on dashboard bloat — validate the 47-to-5 insight, add the 'why nobody looks' layer, no pitch",
+      "draft_comment": "47 KPIs is basically a way of saying 'we don't know what matters yet.' The jump to 85% usage tells you everything — people don't avoid dashboards because they're lazy, they avoid them because they've learned the dashboard won't help them make a call. The real question is who had the authority to delete 42 metrics, because that fight is usually harder than building the thing in the first place.",
+      "scored_at": "2026-03-16T17:36:08.114Z"
     },
     {
       "post_id": "urn:li:activity:7301234567891",
@@ -129,35 +126,23 @@
       "comment_count": 62,
       "is_suggested": false,
       "icp_commenters": [
-        { "name": "Lisa Kaur", "title": "Innovation Director", "company": "NorthStar Retail" }
+        {
+          "name": "Lisa Kaur",
+          "title": "Innovation Director",
+          "company": "NorthStar Retail"
+        }
       ],
-      "score": 7,
-      "score_breakdown": { "topic_fit": 3, "icp_engagement": 1, "recency": 2, "comment_value": 1, "reach_bonus": 0 },
-      "angle": "Self-service BI criticism from Head of Innovation with Innovation Director engaging — add the 'who owns the truth' angle with a practical example",
-      "draft_comment": "Three definitions of revenue is the quiet killer. Everyone thinks the problem is access to data. It's not. It's agreement on what the data means before anyone touches it. Most companies skip that step because it's boring and political. Then wonder why nobody trusts the dashboards.",
-      "scored_at": "2026-03-16T08:35:25.000Z"
-    },
-    {
-      "post_id": "urn:li:activity:7301234567895",
-      "source_type": "competitor",
-      "source_name": "Zenlytic",
-      "author_name": "Ryan Janssen",
-      "author_title": "CEO & Co-founder",
-      "author_company": "Zenlytic",
-      "post_text": "The future of BI isn't dashboards. It's conversations. We're seeing customers replace 80% of their scheduled reports with natural language queries. The shift from 'build me a dashboard' to 'ask me anything' is happening faster than anyone predicted. Mid-market companies are leading this charge.",
-      "post_url": "https://www.linkedin.com/feed/update/urn:li:activity:7301234567895",
-      "timestamp": "8h ago",
-      "reaction_count": 178,
-      "comment_count": 43,
-      "is_suggested": false,
-      "icp_commenters": [
-        { "name": "Emma Fitzgerald", "title": "Head of Innovation", "company": "Redwood Partners" }
-      ],
-      "score": 6.5,
-      "score_breakdown": { "topic_fit": 2, "icp_engagement": 1, "recency": 1, "comment_value": 2, "reach_bonus": 0 },
-      "angle": "Zenlytic CEO claiming mid-market is leading conversational BI — challenge with curiosity on whether 'ask me anything' actually works without a data team to validate answers",
-      "draft_comment": "Curious about the 80% figure. When a mid-market COO asks 'why did margins drop last quarter' — does the natural language answer come with enough context that they'd quote it to their board? That's the bar. Replacing dashboards is easy. Replacing trust in the answer is the hard part.",
-      "scored_at": "2026-03-16T08:35:28.000Z"
+      "score": 8,
+      "score_breakdown": {
+        "topic_fit": 3,
+        "icp_engagement": 1,
+        "recency": 2,
+        "comment_value": 2,
+        "reach_bonus": 0
+      },
+      "angle": "ICP prospect (Innovation Director at NorthStar Retail) engaging on self-service BI chaos — validate the 'who owns truth' framing, add the insight that the tooling problem is actually a governance problem in disguise",
+      "draft_comment": "The 200 reports thing is so familiar it hurts. Everyone gets access, nobody gets alignment — and then three months later the data team is firefighting trust, not building anything. The real issue isn't self-service vs centralised, it's that most orgs handed out the keys before they'd agreed what the car was for. What does 'revenue' mean at Velocity — is that even written down somewhere?",
+      "scored_at": "2026-03-16T17:36:00.993Z"
     },
     {
       "post_id": "urn:li:activity:7301234567902",
@@ -173,13 +158,107 @@
       "comment_count": 38,
       "is_suggested": false,
       "icp_commenters": [
-        { "name": "Andrew Mills", "title": "CEO", "company": "SecureData Ltd (90 employees)" }
+        {
+          "name": "Andrew Mills",
+          "title": "CEO",
+          "company": "SecureData Ltd (90 employees)"
+        }
       ],
+      "score": 8,
+      "score_breakdown": {
+        "topic_fit": 3,
+        "icp_engagement": 1,
+        "recency": 2,
+        "comment_value": 2,
+        "reach_bonus": 0
+      },
+      "angle": "CISO framing AI hallucinations as a security risk — validate the reframe, add the specific analytics angle that makes it concrete, with a CEO prospect watching",
+      "draft_comment": "The security framing is exactly right and I think it's underused. A hallucinated user input gets caught by validation layers — a hallucinated revenue figure in an AI-generated report goes straight into a board deck with nobody checking it. The trust model is completely backwards. Who in your org is actually responsible when that number gets quoted to an auditor?",
+      "scored_at": "2026-03-16T17:36:07.219Z"
+    },
+    {
+      "post_id": "urn:li:activity:7301234567904",
+      "source_type": "feed",
+      "source_name": "feed",
+      "author_name": "Chris Whitfield",
+      "author_title": "CEO",
+      "author_company": "BrightPath Advisory (65 employees)",
+      "post_text": "Had a fascinating conversation with a client yesterday. They spent £200k on a BI platform and the only person who can use it is the one who built it. Self-service my arse. The gap between what vendors promise and what actually happens in a 50-person company is enormous. When will the industry admit that most BI tools are built for data teams, not business teams?",
+      "post_url": "https://www.linkedin.com/feed/update/urn:li:activity:7301234567904",
+      "timestamp": "50m ago",
+      "reaction_count": 89,
+      "comment_count": 41,
+      "is_suggested": false,
+      "icp_commenters": [
+        {
+          "name": "Helen Cross",
+          "title": "COO",
+          "company": "Sterling Consulting"
+        }
+      ],
+      "score": 8,
+      "score_breakdown": {
+        "topic_fit": 3,
+        "icp_engagement": 1,
+        "recency": 2,
+        "comment_value": 2,
+        "reach_bonus": 0
+      },
+      "angle": "ICP prospect (COO at Sterling Consulting) engaging with a post about BI tools failing business users — validate the core frustration with a specific observation, add the hidden reason why it happens",
+      "draft_comment": "That £200k number is brutal, but honestly the price isn't even the worst part — it's the 6 months of internal goodwill burned trying to get people to use it. The dirty secret is most BI tools are still designed around the person querying the data, not the person who just needs an answer on a Tuesday morning. So the 'self-service' is real, it's just self-service for analysts. What would it actually take for a 50-person company to call a BI tool genuinely useful — not impressive, just useful?",
+      "scored_at": "2026-03-16T17:36:14.746Z"
+    },
+    {
+      "post_id": "urn:li:activity:7301234567893",
+      "source_type": "feed",
+      "source_name": "feed",
+      "author_name": "Alex Rivera",
+      "author_title": "Commercial Director",
+      "author_company": "Oakwood Industries",
+      "post_text": "Just had our quarterly review and the CFO asked why the numbers in our BI dashboard don't match the numbers in the ERP. Turns out three different teams were applying different filters to the same dataset. AI won't fix this. Culture will. But nobody wants to hear that.",
+      "post_url": "https://www.linkedin.com/feed/update/urn:li:activity:7301234567893",
+      "timestamp": "1h ago",
+      "reaction_count": 45,
+      "comment_count": 21,
+      "is_suggested": false,
+      "icp_commenters": [],
+      "score": 7,
+      "score_breakdown": {
+        "topic_fit": 3,
+        "icp_engagement": 0,
+        "recency": 2,
+        "comment_value": 2,
+        "reach_bonus": 0
+      },
+      "angle": "Commercial Director at a likely ICP company surfacing a classic data trust problem — validate the cultural root cause, add the layer about why tooling gets blamed first",
+      "draft_comment": "Three teams, one dataset, three answers — that's not a filter problem, that's a 'who owns the truth' problem. And the reason everyone points at the BI tool is because it's easier to blame software than to have the governance conversation. The CFO probably still doesn't fully trust the dashboard even after you explained it. Does anyone ever really?",
+      "scored_at": "2026-03-16T17:36:00.127Z"
+    },
+    {
+      "post_id": "urn:li:activity:7301234567896",
+      "source_type": "hashtag",
+      "source_name": "#microsoftcopilot",
+      "author_name": "Greg Patterson",
+      "author_title": "IT Director",
+      "author_company": "Cornerstone Manufacturing",
+      "post_text": "Rolled out Copilot to 500 users last quarter. Usage after 90 days? 12%. The problem isn't the tool — it's that nobody knows what to ask it. We're essentially paying for a very expensive autocomplete. Shadow AI is the real story here — people are using ChatGPT on their phones because Copilot is too locked down.",
+      "post_url": "https://www.linkedin.com/feed/update/urn:li:activity:7301234567896",
+      "timestamp": "45m ago",
+      "reaction_count": 67,
+      "comment_count": 28,
+      "is_suggested": false,
+      "icp_commenters": [],
       "score": 6,
-      "score_breakdown": { "topic_fit": 3, "icp_engagement": 1, "recency": 2, "comment_value": 0, "reach_bonus": 0 },
-      "angle": "AI hallucination as security risk framing — agree and bridge to the trust gap in BI specifically, CEO of 90-person company engaging",
-      "draft_comment": "The security framing is spot on. But I'd go further — it's not just hallucinated numbers. It's the confidence with which AI presents them. A spreadsheet formula that's wrong at least looks like it could be wrong. An AI-generated insight comes wrapped in certainty. That's what makes it dangerous.",
-      "scored_at": "2026-03-16T08:35:30.000Z"
+      "score_breakdown": {
+        "topic_fit": 2,
+        "icp_engagement": 0,
+        "recency": 2,
+        "comment_value": 2,
+        "reach_bonus": 0
+      },
+      "angle": "IT Director surfacing a real adoption failure pattern — validate the 'nobody knows what to ask' insight and reframe it as a data literacy problem, not a tooling problem",
+      "draft_comment": "The 12% number doesn't surprise me at all. The gap isn't Copilot vs ChatGPT — it's that most people don't have a clear enough mental model of their own data to know what questions are even worth asking. Shadow AI feels like freedom but it's usually just faster guessing. What does the 12% who stuck with it actually have in common?",
+      "scored_at": "2026-03-16T17:36:06.701Z"
     }
   ]
 }
