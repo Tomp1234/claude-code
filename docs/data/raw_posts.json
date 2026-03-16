@@ -1,1 +1,310 @@
-[]
+[
+  {
+    "post_id": "urn:li:activity:7301234567890",
+    "source_type": "feed",
+    "source_name": "feed",
+    "author_name": "Sarah Mitchell",
+    "author_title": "COO",
+    "author_company": "Greenfield Consulting (140 employees)",
+    "post_text": "We spent 18 months building a Power BI dashboard that our finance team refuses to use. They still export everything to Excel and email it around. The building part was easy. Getting people to actually trust the numbers enough to quote them in a board meeting? That's the real challenge nobody talks about. Anyone else hit this wall?",
+    "post_url": "https://www.linkedin.com/feed/update/urn:li:activity:7301234567890",
+    "timestamp": "2h ago",
+    "reaction_count": 87,
+    "comment_count": 34,
+    "is_suggested": true,
+    "icp_commenters": [
+      {
+        "name": "James Thornton",
+        "title": "VP Operations",
+        "company": "Meridian Group"
+      },
+      {
+        "name": "Rachel Dunn",
+        "title": "Director of Operations",
+        "company": "Apex Partners"
+      }
+    ]
+  },
+  {
+    "post_id": "urn:li:activity:7301234567891",
+    "source_type": "hashtag",
+    "source_name": "#powerbi",
+    "author_name": "Mark Henderson",
+    "author_title": "Head of Innovation",
+    "author_company": "Velocity Media",
+    "post_text": "Hot take: self-service BI is a myth. We gave everyone Power BI licenses and what happened? 200 reports, zero consistency, three different definitions of 'revenue'. The promise of democratising data is great until you realise nobody agrees on what the data means. Build vs buy isn't the question — it's 'who owns the truth?'",
+    "post_url": "https://www.linkedin.com/feed/update/urn:li:activity:7301234567891",
+    "timestamp": "4h ago",
+    "reaction_count": 156,
+    "comment_count": 62,
+    "is_suggested": false,
+    "icp_commenters": [
+      {
+        "name": "Lisa Kaur",
+        "title": "Innovation Director",
+        "company": "NorthStar Retail"
+      }
+    ]
+  },
+  {
+    "post_id": "urn:li:activity:7301234567892",
+    "source_type": "competitor",
+    "source_name": "ThoughtSpot",
+    "author_name": "ThoughtSpot",
+    "author_title": "Company Page",
+    "author_company": "ThoughtSpot",
+    "post_text": "Enterprise analytics teams are wasting 40% of their time on ad-hoc reporting requests. Our new AI-Powered Analytics eliminates the bottleneck entirely. See how Fortune 500 companies are scaling their data teams with ThoughtSpot. #analytics #enterprise",
+    "post_url": "https://www.linkedin.com/feed/update/urn:li:activity:7301234567892",
+    "timestamp": "5h ago",
+    "reaction_count": 234,
+    "comment_count": 18,
+    "is_suggested": false,
+    "icp_commenters": [
+      {
+        "name": "David Chen",
+        "title": "CEO",
+        "company": "Bright Analytics (85 employees)"
+      },
+      {
+        "name": "Priya Sharma",
+        "title": "COO",
+        "company": "DataFlow Solutions"
+      }
+    ]
+  },
+  {
+    "post_id": "urn:li:activity:7301234567893",
+    "source_type": "feed",
+    "source_name": "feed",
+    "author_name": "Alex Rivera",
+    "author_title": "Commercial Director",
+    "author_company": "Oakwood Industries",
+    "post_text": "Just had our quarterly review and the CFO asked why the numbers in our BI dashboard don't match the numbers in the ERP. Turns out three different teams were applying different filters to the same dataset. AI won't fix this. Culture will. But nobody wants to hear that.",
+    "post_url": "https://www.linkedin.com/feed/update/urn:li:activity:7301234567893",
+    "timestamp": "1h ago",
+    "reaction_count": 45,
+    "comment_count": 21,
+    "is_suggested": false,
+    "icp_commenters": []
+  },
+  {
+    "post_id": "urn:li:activity:7301234567894",
+    "source_type": "hashtag",
+    "source_name": "#chatgpt",
+    "author_name": "Dr. Karen Walsh",
+    "author_title": "Chief Risk Officer",
+    "author_company": "Summit Financial",
+    "post_text": "We banned ChatGPT in our analytics department last month. Not because AI is bad — because nobody could explain where the numbers came from. When a regulator asks 'how did you arrive at this figure?' and the answer is 'GPT said so', you've got a compliance problem. The AI trust gap is real and growing.",
+    "post_url": "https://www.linkedin.com/feed/update/urn:li:activity:7301234567894",
+    "timestamp": "3h ago",
+    "reaction_count": 312,
+    "comment_count": 89,
+    "is_suggested": true,
+    "icp_commenters": [
+      {
+        "name": "Tom Buckley",
+        "title": "VP Operations",
+        "company": "FinServe Group"
+      },
+      {
+        "name": "Nina Okafor",
+        "title": "Chief Operating Officer",
+        "company": "Clearview Advisors"
+      },
+      {
+        "name": "Robert Lang",
+        "title": "CEO",
+        "company": "Precision Analytics (120 employees)"
+      }
+    ]
+  },
+  {
+    "post_id": "urn:li:activity:7301234567895",
+    "source_type": "competitor",
+    "source_name": "Zenlytic",
+    "author_name": "Ryan Janssen",
+    "author_title": "CEO & Co-founder",
+    "author_company": "Zenlytic",
+    "post_text": "The future of BI isn't dashboards. It's conversations. We're seeing customers replace 80% of their scheduled reports with natural language queries. The shift from 'build me a dashboard' to 'ask me anything' is happening faster than anyone predicted. Mid-market companies are leading this charge.",
+    "post_url": "https://www.linkedin.com/feed/update/urn:li:activity:7301234567895",
+    "timestamp": "8h ago",
+    "reaction_count": 178,
+    "comment_count": 43,
+    "is_suggested": false,
+    "icp_commenters": [
+      {
+        "name": "Emma Fitzgerald",
+        "title": "Head of Innovation",
+        "company": "Redwood Partners"
+      }
+    ]
+  },
+  {
+    "post_id": "urn:li:activity:7301234567896",
+    "source_type": "hashtag",
+    "source_name": "#microsoftcopilot",
+    "author_name": "Greg Patterson",
+    "author_title": "IT Director",
+    "author_company": "Cornerstone Manufacturing",
+    "post_text": "Rolled out Copilot to 500 users last quarter. Usage after 90 days? 12%. The problem isn't the tool — it's that nobody knows what to ask it. We're essentially paying for a very expensive autocomplete. Shadow AI is the real story here — people are using ChatGPT on their phones because Copilot is too locked down.",
+    "post_url": "https://www.linkedin.com/feed/update/urn:li:activity:7301234567896",
+    "timestamp": "45m ago",
+    "reaction_count": 67,
+    "comment_count": 28,
+    "is_suggested": false,
+    "icp_commenters": []
+  },
+  {
+    "post_id": "urn:li:activity:7301234567897",
+    "source_type": "feed",
+    "source_name": "feed",
+    "author_name": "Jennifer Blake",
+    "author_title": "Senior Data Engineer",
+    "author_company": "TechFlow Systems",
+    "post_text": "Just finished migrating our entire data stack from on-prem to Snowflake + dbt. Took 8 months. Here's the architecture diagram and lessons learned. Thread below 🧵",
+    "post_url": "https://www.linkedin.com/feed/update/urn:li:activity:7301234567897",
+    "timestamp": "6h ago",
+    "reaction_count": 234,
+    "comment_count": 45,
+    "is_suggested": false,
+    "icp_commenters": []
+  },
+  {
+    "post_id": "urn:li:activity:7301234567898",
+    "source_type": "hashtag",
+    "source_name": "#operationalexcellence",
+    "author_name": "Michael Torres",
+    "author_title": "VP Operations",
+    "author_company": "Atlas Logistics",
+    "post_text": "Unpopular opinion: most operational dashboards are vanity projects. We had 47 KPIs on our ops dashboard. Nobody looked at it. Cut it to 5 metrics that actually drive decisions. Usage went from 10% to 85%. The problem with BI isn't the tools — it's that we measure everything and understand nothing.",
+    "post_url": "https://www.linkedin.com/feed/update/urn:li:activity:7301234567898",
+    "timestamp": "2h ago",
+    "reaction_count": 198,
+    "comment_count": 56,
+    "is_suggested": true,
+    "icp_commenters": [
+      {
+        "name": "Claire Ashton",
+        "title": "Director of Operations",
+        "company": "Summit Group"
+      }
+    ]
+  },
+  {
+    "post_id": "urn:li:activity:7301234567899",
+    "source_type": "feed",
+    "source_name": "feed",
+    "author_name": "Sophie Grant",
+    "author_title": "Marketing Manager",
+    "author_company": "Bloom Digital",
+    "post_text": "Excited to announce our new office! 🎉 After 3 years of remote work, we're finally bringing the team together. Check out our amazing new space in Manchester. So grateful for this journey! #blessed #newoffice #teamwork",
+    "post_url": "https://www.linkedin.com/feed/update/urn:li:activity:7301234567899",
+    "timestamp": "1h ago",
+    "reaction_count": 342,
+    "comment_count": 67,
+    "is_suggested": true,
+    "icp_commenters": []
+  },
+  {
+    "post_id": "urn:li:activity:7301234567900",
+    "source_type": "competitor",
+    "source_name": "WisdomAI",
+    "author_name": "WisdomAI",
+    "author_title": "Company Page",
+    "author_company": "WisdomAI",
+    "post_text": "Register now for our upcoming webinar: 'How AI is Revolutionizing Business Intelligence for the Mid-Market'. Join us to learn how WisdomAI helps companies make better decisions. Book a demo today and get 20% off your first year. Link in bio. #AI #BI",
+    "post_url": "https://www.linkedin.com/feed/update/urn:li:activity:7301234567900",
+    "timestamp": "10h ago",
+    "reaction_count": 23,
+    "comment_count": 2,
+    "is_suggested": false,
+    "icp_commenters": []
+  },
+  {
+    "post_id": "urn:li:activity:7301234567901",
+    "source_type": "feed",
+    "source_name": "feed",
+    "author_name": "Daniel Kowalski",
+    "author_title": "CTO",
+    "author_company": "Nexus Data",
+    "post_text": "We just open-sourced our internal data quality framework. Built it over 2 years to catch schema drift, null anomalies, and freshness issues before they hit production dashboards. GitHub link in comments.",
+    "post_url": "https://www.linkedin.com/feed/update/urn:li:activity:7301234567901",
+    "timestamp": "3h ago",
+    "reaction_count": 567,
+    "comment_count": 89,
+    "is_suggested": false,
+    "icp_commenters": []
+  },
+  {
+    "post_id": "urn:li:activity:7301234567902",
+    "source_type": "hashtag",
+    "source_name": "#aisecurity",
+    "author_name": "Patricia Nguyen",
+    "author_title": "CISO",
+    "author_company": "Fortis Healthcare",
+    "post_text": "AI hallucinations in analytics are a security issue, not just an accuracy issue. If your AI tool generates a financial report with hallucinated numbers and someone makes a decision based on it, that's not a bug — it's a material risk. We need to start treating AI outputs with the same scrutiny as we treat user inputs.",
+    "post_url": "https://www.linkedin.com/feed/update/urn:li:activity:7301234567902",
+    "timestamp": "1h ago",
+    "reaction_count": 145,
+    "comment_count": 38,
+    "is_suggested": false,
+    "icp_commenters": [
+      {
+        "name": "Andrew Mills",
+        "title": "CEO",
+        "company": "SecureData Ltd (90 employees)"
+      }
+    ]
+  },
+  {
+    "post_id": "urn:li:activity:7301234567903",
+    "source_type": "feed",
+    "source_name": "feed",
+    "author_name": "Laura Bennett",
+    "author_title": "Head of People",
+    "author_company": "Crescendo Group",
+    "post_text": "We're hiring! Looking for a Senior Data Analyst to join our growing team. Competitive salary, remote-first, unlimited PTO. Apply now — link below. Sign up for job alerts to never miss an opportunity!",
+    "post_url": "https://www.linkedin.com/feed/update/urn:li:activity:7301234567903",
+    "timestamp": "30m ago",
+    "reaction_count": 12,
+    "comment_count": 3,
+    "is_suggested": false,
+    "icp_commenters": []
+  },
+  {
+    "post_id": "urn:li:activity:7301234567904",
+    "source_type": "feed",
+    "source_name": "feed",
+    "author_name": "Chris Whitfield",
+    "author_title": "CEO",
+    "author_company": "BrightPath Advisory (65 employees)",
+    "post_text": "Had a fascinating conversation with a client yesterday. They spent £200k on a BI platform and the only person who can use it is the one who built it. Self-service my arse. The gap between what vendors promise and what actually happens in a 50-person company is enormous. When will the industry admit that most BI tools are built for data teams, not business teams?",
+    "post_url": "https://www.linkedin.com/feed/update/urn:li:activity:7301234567904",
+    "timestamp": "50m ago",
+    "reaction_count": 89,
+    "comment_count": 41,
+    "is_suggested": false,
+    "icp_commenters": [
+      {
+        "name": "Helen Cross",
+        "title": "COO",
+        "company": "Sterling Consulting"
+      }
+    ]
+  },
+  {
+    "post_id": "urn:li:activity:7301234567905",
+    "source_type": "hashtag",
+    "source_name": "#selfservicebi",
+    "author_name": "Raj Patel",
+    "author_title": "Analytics Lead",
+    "author_company": "Global Insights Corp",
+    "post_text": "Just published our 2024 State of Self-Service BI report. Key finding: 73% of self-service BI deployments fail within 18 months. The #1 reason? Not technology — it's that business users don't trust data they didn't create themselves. Full report link below.",
+    "post_url": "https://www.linkedin.com/feed/update/urn:li:activity:7301234567905",
+    "timestamp": "36h ago",
+    "reaction_count": 445,
+    "comment_count": 112,
+    "is_suggested": false,
+    "icp_commenters": []
+  }
+]

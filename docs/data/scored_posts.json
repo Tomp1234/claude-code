@@ -1,4 +1,185 @@
 {
-  "last_run": "2026-03-16T15:52:06.110Z",
-  "posts": []
+  "last_run": "2026-03-16T08:35:00.000Z",
+  "posts": [
+    {
+      "post_id": "urn:li:activity:7301234567894",
+      "source_type": "feed",
+      "source_name": "feed",
+      "author_name": "Dr. Karen Walsh",
+      "author_title": "Chief Risk Officer",
+      "author_company": "Summit Financial",
+      "post_text": "We banned ChatGPT in our analytics department last month. Not because AI is bad — because nobody could explain where the numbers came from. When a regulator asks 'how did you arrive at this figure?' and the answer is 'GPT said so', you've got a compliance problem. The AI trust gap is real and growing.",
+      "post_url": "https://www.linkedin.com/feed/update/urn:li:activity:7301234567894",
+      "timestamp": "3h ago",
+      "reaction_count": 312,
+      "comment_count": 89,
+      "is_suggested": true,
+      "icp_commenters": [
+        { "name": "Tom Buckley", "title": "VP Operations", "company": "FinServe Group" },
+        { "name": "Nina Okafor", "title": "Chief Operating Officer", "company": "Clearview Advisors" },
+        { "name": "Robert Lang", "title": "CEO", "company": "Precision Analytics (120 employees)" }
+      ],
+      "score": 10,
+      "score_breakdown": { "topic_fit": 3, "icp_engagement": 3, "recency": 2, "comment_value": 2, "reach_bonus": 1 },
+      "angle": "AI trust gap thread with 3 ICP prospects (VP Ops, COO, CEO) — validate the compliance pain with a real-world example of what 'explainable' actually looks like in practice",
+      "draft_comment": "This is the exact conversation I keep having with ops leaders. The issue isn't whether AI can generate the right number — it's whether anyone in the room can explain how it got there. Most BI tools already had this problem before AI made it worse. At least with a spreadsheet someone could trace the formula.",
+      "scored_at": "2026-03-16T08:35:12.000Z"
+    },
+    {
+      "post_id": "urn:li:activity:7301234567890",
+      "source_type": "feed",
+      "source_name": "feed",
+      "author_name": "Sarah Mitchell",
+      "author_title": "COO",
+      "author_company": "Greenfield Consulting (140 employees)",
+      "post_text": "We spent 18 months building a Power BI dashboard that our finance team refuses to use. They still export everything to Excel and email it around. The building part was easy. Getting people to actually trust the numbers enough to quote them in a board meeting? That's the real challenge nobody talks about. Anyone else hit this wall?",
+      "post_url": "https://www.linkedin.com/feed/update/urn:li:activity:7301234567890",
+      "timestamp": "2h ago",
+      "reaction_count": 87,
+      "comment_count": 34,
+      "is_suggested": true,
+      "icp_commenters": [
+        { "name": "James Thornton", "title": "VP Operations", "company": "Meridian Group" },
+        { "name": "Rachel Dunn", "title": "Director of Operations", "company": "Apex Partners" }
+      ],
+      "score": 9,
+      "score_breakdown": { "topic_fit": 3, "icp_engagement": 2, "recency": 2, "comment_value": 2, "reach_bonus": 1 },
+      "angle": "ICP prospect (COO at 140-person consultancy) frustrated with Power BI adoption — validate the trust problem, don't pitch",
+      "draft_comment": "I reckon this is the same pattern every time. The building part is easy. Getting your CFO to trust it enough to quote numbers in a board meeting? That takes years not sprints. The teams that crack it usually start with one metric everyone already agrees on and build trust outward from there.",
+      "scored_at": "2026-03-16T08:35:15.000Z"
+    },
+    {
+      "post_id": "urn:li:activity:7301234567892",
+      "source_type": "competitor",
+      "source_name": "ThoughtSpot",
+      "author_name": "ThoughtSpot",
+      "author_title": "Company Page",
+      "author_company": "ThoughtSpot",
+      "post_text": "Enterprise analytics teams are wasting 40% of their time on ad-hoc reporting requests. Our new AI-Powered Analytics eliminates the bottleneck entirely. See how Fortune 500 companies are scaling their data teams with ThoughtSpot. #analytics #enterprise",
+      "post_url": "https://www.linkedin.com/feed/update/urn:li:activity:7301234567892",
+      "timestamp": "5h ago",
+      "reaction_count": 234,
+      "comment_count": 18,
+      "is_suggested": false,
+      "icp_commenters": [
+        { "name": "David Chen", "title": "CEO", "company": "Bright Analytics (85 employees)" },
+        { "name": "Priya Sharma", "title": "COO", "company": "DataFlow Solutions" }
+      ],
+      "score": 8,
+      "score_breakdown": { "topic_fit": 2, "icp_engagement": 2, "recency": 2, "comment_value": 2, "reach_bonus": 0 },
+      "angle": "ThoughtSpot pushing enterprise framing with Fortune 500 — challenge with mid-market reality where 'eliminating the bottleneck' means something very different",
+      "draft_comment": "Genuine question — does 'eliminating ad-hoc requests' actually work at the 50-200 person company level? In my experience the bottleneck isn't volume of requests, it's that nobody trusts the self-serve option enough to stop asking. Fortune 500 can throw analysts at the problem. Mid-market can't.",
+      "scored_at": "2026-03-16T08:35:18.000Z"
+    },
+    {
+      "post_id": "urn:li:activity:7301234567904",
+      "source_type": "feed",
+      "source_name": "feed",
+      "author_name": "Chris Whitfield",
+      "author_title": "CEO",
+      "author_company": "BrightPath Advisory (65 employees)",
+      "post_text": "Had a fascinating conversation with a client yesterday. They spent £200k on a BI platform and the only person who can use it is the one who built it. Self-service my arse. The gap between what vendors promise and what actually happens in a 50-person company is enormous. When will the industry admit that most BI tools are built for data teams, not business teams?",
+      "post_url": "https://www.linkedin.com/feed/update/urn:li:activity:7301234567904",
+      "timestamp": "50m ago",
+      "reaction_count": 89,
+      "comment_count": 41,
+      "is_suggested": false,
+      "icp_commenters": [
+        { "name": "Helen Cross", "title": "COO", "company": "Sterling Consulting" }
+      ],
+      "score": 8,
+      "score_breakdown": { "topic_fit": 3, "icp_engagement": 1, "recency": 2, "comment_value": 2, "reach_bonus": 0 },
+      "angle": "CEO of 65-person advisory firm calling out self-service BI gap — validate with the 'built for data teams not business teams' angle",
+      "draft_comment": "The £200k BI platform where one person holds the keys — that's not a technology failure, it's a design assumption. Most tools assume you've got a data team to maintain them. At 50 people you haven't. So the person who built it becomes the bottleneck they were trying to eliminate. Seen it dozens of times.",
+      "scored_at": "2026-03-16T08:35:20.000Z"
+    },
+    {
+      "post_id": "urn:li:activity:7301234567898",
+      "source_type": "hashtag",
+      "source_name": "#operationalexcellence",
+      "author_name": "Michael Torres",
+      "author_title": "VP Operations",
+      "author_company": "Atlas Logistics",
+      "post_text": "Unpopular opinion: most operational dashboards are vanity projects. We had 47 KPIs on our ops dashboard. Nobody looked at it. Cut it to 5 metrics that actually drive decisions. Usage went from 10% to 85%. The problem with BI isn't the tools — it's that we measure everything and understand nothing.",
+      "post_url": "https://www.linkedin.com/feed/update/urn:li:activity:7301234567898",
+      "timestamp": "2h ago",
+      "reaction_count": 198,
+      "comment_count": 56,
+      "is_suggested": true,
+      "icp_commenters": [
+        { "name": "Claire Ashton", "title": "Director of Operations", "company": "Summit Group" }
+      ],
+      "score": 7.5,
+      "score_breakdown": { "topic_fit": 2, "icp_engagement": 1, "recency": 2, "comment_value": 2, "reach_bonus": 1 },
+      "angle": "VP Ops calling dashboards vanity projects — agree and extend with the 'explain not just show' insight, ICP Director of Ops engaging",
+      "draft_comment": "47 KPIs to 5 is the right direction but I'd push it further. The 5 that survived — were they the ones people already understood, or the ones that actually mattered? Usually they're not the same thing. The real test isn't 'does anyone look at it' but 'has anyone changed a decision because of it'.",
+      "scored_at": "2026-03-16T08:35:22.000Z"
+    },
+    {
+      "post_id": "urn:li:activity:7301234567891",
+      "source_type": "hashtag",
+      "source_name": "#powerbi",
+      "author_name": "Mark Henderson",
+      "author_title": "Head of Innovation",
+      "author_company": "Velocity Media",
+      "post_text": "Hot take: self-service BI is a myth. We gave everyone Power BI licenses and what happened? 200 reports, zero consistency, three different definitions of 'revenue'. The promise of democratising data is great until you realise nobody agrees on what the data means. Build vs buy isn't the question — it's 'who owns the truth?'",
+      "post_url": "https://www.linkedin.com/feed/update/urn:li:activity:7301234567891",
+      "timestamp": "4h ago",
+      "reaction_count": 156,
+      "comment_count": 62,
+      "is_suggested": false,
+      "icp_commenters": [
+        { "name": "Lisa Kaur", "title": "Innovation Director", "company": "NorthStar Retail" }
+      ],
+      "score": 7,
+      "score_breakdown": { "topic_fit": 3, "icp_engagement": 1, "recency": 2, "comment_value": 1, "reach_bonus": 0 },
+      "angle": "Self-service BI criticism from Head of Innovation with Innovation Director engaging — add the 'who owns the truth' angle with a practical example",
+      "draft_comment": "Three definitions of revenue is the quiet killer. Everyone thinks the problem is access to data. It's not. It's agreement on what the data means before anyone touches it. Most companies skip that step because it's boring and political. Then wonder why nobody trusts the dashboards.",
+      "scored_at": "2026-03-16T08:35:25.000Z"
+    },
+    {
+      "post_id": "urn:li:activity:7301234567895",
+      "source_type": "competitor",
+      "source_name": "Zenlytic",
+      "author_name": "Ryan Janssen",
+      "author_title": "CEO & Co-founder",
+      "author_company": "Zenlytic",
+      "post_text": "The future of BI isn't dashboards. It's conversations. We're seeing customers replace 80% of their scheduled reports with natural language queries. The shift from 'build me a dashboard' to 'ask me anything' is happening faster than anyone predicted. Mid-market companies are leading this charge.",
+      "post_url": "https://www.linkedin.com/feed/update/urn:li:activity:7301234567895",
+      "timestamp": "8h ago",
+      "reaction_count": 178,
+      "comment_count": 43,
+      "is_suggested": false,
+      "icp_commenters": [
+        { "name": "Emma Fitzgerald", "title": "Head of Innovation", "company": "Redwood Partners" }
+      ],
+      "score": 6.5,
+      "score_breakdown": { "topic_fit": 2, "icp_engagement": 1, "recency": 1, "comment_value": 2, "reach_bonus": 0 },
+      "angle": "Zenlytic CEO claiming mid-market is leading conversational BI — challenge with curiosity on whether 'ask me anything' actually works without a data team to validate answers",
+      "draft_comment": "Curious about the 80% figure. When a mid-market COO asks 'why did margins drop last quarter' — does the natural language answer come with enough context that they'd quote it to their board? That's the bar. Replacing dashboards is easy. Replacing trust in the answer is the hard part.",
+      "scored_at": "2026-03-16T08:35:28.000Z"
+    },
+    {
+      "post_id": "urn:li:activity:7301234567902",
+      "source_type": "hashtag",
+      "source_name": "#aisecurity",
+      "author_name": "Patricia Nguyen",
+      "author_title": "CISO",
+      "author_company": "Fortis Healthcare",
+      "post_text": "AI hallucinations in analytics are a security issue, not just an accuracy issue. If your AI tool generates a financial report with hallucinated numbers and someone makes a decision based on it, that's not a bug — it's a material risk. We need to start treating AI outputs with the same scrutiny as we treat user inputs.",
+      "post_url": "https://www.linkedin.com/feed/update/urn:li:activity:7301234567902",
+      "timestamp": "1h ago",
+      "reaction_count": 145,
+      "comment_count": 38,
+      "is_suggested": false,
+      "icp_commenters": [
+        { "name": "Andrew Mills", "title": "CEO", "company": "SecureData Ltd (90 employees)" }
+      ],
+      "score": 6,
+      "score_breakdown": { "topic_fit": 3, "icp_engagement": 1, "recency": 2, "comment_value": 0, "reach_bonus": 0 },
+      "angle": "AI hallucination as security risk framing — agree and bridge to the trust gap in BI specifically, CEO of 90-person company engaging",
+      "draft_comment": "The security framing is spot on. But I'd go further — it's not just hallucinated numbers. It's the confidence with which AI presents them. A spreadsheet formula that's wrong at least looks like it could be wrong. An AI-generated insight comes wrapped in certainty. That's what makes it dangerous.",
+      "scored_at": "2026-03-16T08:35:30.000Z"
+    }
+  ]
 }

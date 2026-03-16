@@ -439,6 +439,21 @@
   .toast.success { border-color: var(--green); }
   .toast.error { border-color: var(--urgent); }
 
+  /* Run Scan button */
+  .btn-scan {
+    background: linear-gradient(135deg, var(--primary), var(--purple));
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .btn-scan:hover { filter: brightness(1.15); }
+
   @media (max-width: 640px) {
     .header { padding: 16px; }
     .content { padding: 16px; }
@@ -468,6 +483,7 @@
       <div class="stat-value" id="queueSizeDisplay">0</div>
       <div class="stat-label">Queue</div>
     </div>
+    <button class="btn-scan" id="runScanBtn" title="Copy scan prompt to clipboard and open Claude">Run Scan</button>
   </div>
 </div>
 
@@ -970,6 +986,85 @@
   });
 
   document.getElementById("saveSettingsBtn").addEventListener("click", saveSettings);
+
+  // ── Run Scan button ──
+  function buildScanPrompt() {
+    const hashtags = (config.hashtags || []).join(", ") || "#businessintelligence, #selfservicebi, #dataanalytics, #aisecurity, #chatgpt, #microsoftcopilot, #powerbi, #operationalexcellence";
+    const competitors = (config.competitors || []).map(c => `${c.name} (${c.type}): ${c.url || "search LinkedIn"}`).join("\n") || "ThoughtSpot, Zenlytic, WisdomAI";
+    const owner = getOwner();
+    const repo = getRepo();
+    const branch = getBranch();
+
+    return `You are a LinkedIn scanner for the Milo Comment Intelligence Dashboard. Your job is READ-ONLY — never like, comment, react, connect, follow, or take any action on LinkedIn. Scroll at human pace. On any CAPTCHA, verification, or unexpected modal: stop immediately.
+
+TASK: Extract LinkedIn posts and write them as JSON.
+
+SOURCE 1 — FEED (100 posts)
+Scroll Tom's LinkedIn feed. Extract 100 posts including both followed and suggested/recommended posts.
+
+SOURCE 2 — HASHTAG SEARCH (top 10 per hashtag)
+Search each hashtag and extract the 10 most recent posts:
+${hashtags}
+
+SOURCE 3 — COMPETITOR PAGES (last 24 hours)
+Visit each page, extract all visible posts from the last 24 hours. Also extract visible commenters (name, title, company):
+${competitors}
+
+For EVERY post, extract this exact JSON structure:
+{
+  "post_id": "unique identifier or URL slug",
+  "source_type": "feed | hashtag | competitor",
+  "source_name": "feed | #hashtag | CompetitorName",
+  "author_name": "full name",
+  "author_title": "job title/headline",
+  "author_company": "company name",
+  "post_text": "full post text",
+  "post_url": "direct LinkedIn URL",
+  "timestamp": "as shown, e.g. '2h ago'",
+  "reaction_count": 0,
+  "comment_count": 0,
+  "is_suggested": false,
+  "icp_commenters": [{"name":"","title":"","company":""}]
+}
+
+- is_suggested = true ONLY for posts LinkedIn labels as "Suggested" or "Recommended"
+- icp_commenters = visible commenters on competitor posts (name/title/company). Empty array for feed/hashtag unless visible.
+
+OUTPUT: Write the complete JSON array to a file, then run these git commands:
+git add docs/data/raw_posts.json
+git commit -m "Raw posts — $(date -u +'%Y-%m-%d %H:%M')"
+git push origin ${branch}
+
+${owner && repo ? `Repository: ${owner}/${repo}` : "Set the repository in dashboard Settings."}
+File path: docs/data/raw_posts.json
+
+HARD RULES:
+- NEVER like, comment, react, connect, follow, or take ANY action
+- Scroll at human pace
+- On CAPTCHA or verification: STOP. Do not retry.
+- On unexpected modal: close it and continue, or abort and log
+- Only access pages Tom already follows or that are publicly visible`;
+  }
+
+  document.getElementById("runScanBtn").addEventListener("click", async () => {
+    const prompt = buildScanPrompt();
+    try {
+      await navigator.clipboard.writeText(prompt);
+      showToast("Scan prompt copied to clipboard", "success");
+    } catch {
+      // Fallback: select from a temporary textarea
+      const ta = document.createElement("textarea");
+      ta.value = prompt;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+      showToast("Scan prompt copied to clipboard", "success");
+    }
+    window.open("https://claude.ai", "_blank");
+  });
 
   // Expose actions globally for onclick handlers
   window._dashboard = {
