@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkedIn Comment Intelligence — Milo</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0B0F1E;
+    --bg-card: #131829;
+    --bg-hover: #1a2035;
+    --primary: #4B7BFF;
+    --purple: #8B5CF6;
+    --text: #F0F4FF;
+    --text-muted: #8891A5;
+    --urgent: #FF4B4B;
+    --standard: #F59E0B;
+    --green: #22C55E;
+    --border: #1E2740;
+    --radius: 8px;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+
+  /* Warning banner */
+  .warning-banner {
+    background: var(--urgent);
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 14px;
+    display: none;
+  }
+  .warning-banner.visible { display: block; }
+
+  /* Header */
+  .header {
+    padding: 20px 32px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .header-title {
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .header-title span {
+    color: var(--primary);
+  }
+  .header-stats {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .stat {
+    text-align: center;
+  }
+  .stat-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--primary);
+  }
+  .stat-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Tabs */
+  .tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    padding: 0 32px;
+  }
+  .tab {
+    padding: 12px 20px;
+    cursor: pointer;
+    color: var(--text-muted);
+    font-size: 14px;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    transition: all 0.15s;
+  }
+  .tab:hover { color: var(--text); }
+  .tab.active {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+  }
+
+  /* Content */
+  .content { padding: 24px 32px; }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* Section headers */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    margin-top: 24px;
+  }
+  .section-header:first-child { margin-top: 0; }
+  .section-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .section-dot.urgent { background: var(--urgent); box-shadow: 0 0 8px rgba(255,75,75,0.5); }
+  .section-dot.standard { background: var(--standard); }
+  .section-title {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .section-count {
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+
+  /* Post cards */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 12px;
+    border-left: 3px solid var(--primary);
+    transition: background 0.15s;
+  }
+  .card:hover { background: var(--bg-hover); }
+  .card.competitor { border-left-color: var(--purple); }
+  .card.urgent-card { border-left-color: var(--urgent); }
+
+  .card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .badge-feed, .badge-hashtag {
+    background: rgba(75,123,255,0.15);
+    color: var(--primary);
+  }
+  .badge-competitor {
+    background: rgba(139,92,246,0.15);
+    color: var(--purple);
+  }
+  .score-badge {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    white-space: nowrap;
+  }
+
+  .author-name {
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .author-detail {
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+  .post-snippet {
+    color: var(--text-muted);
+    font-size: 13px;
+    margin: 8px 0;
+    line-height: 1.5;
+  }
+  .angle {
+    color: var(--standard);
+    font-size: 13px;
+    font-style: italic;
+    margin: 8px 0;
+  }
+  .icp-list {
+    font-size: 12px;
+    color: var(--green);
+    margin: 6px 0;
+  }
+  .icp-list strong { color: var(--green); }
+
+  /* Draft area */
+  .draft-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 6px 14px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.15s;
+  }
+  .draft-toggle:hover {
+    border-color: var(--primary);
+    color: var(--text);
+  }
+  .draft-area {
+    display: none;
+    margin-top: 10px;
+  }
+  .draft-area.open { display: block; }
+  .draft-textarea {
+    width: 100%;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    padding: 12px;
+    font-size: 13px;
+    line-height: 1.5;
+    font-family: inherit;
+    resize: vertical;
+    min-height: 80px;
+  }
+  .draft-textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+  }
+
+  /* Card actions */
+  .card-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    padding: 7px 16px;
+    border-radius: var(--radius);
+    border: none;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .btn-primary {
+    background: var(--primary);
+    color: white;
+  }
+  .btn-primary:hover { filter: brightness(1.15); }
+  .btn-green {
+    background: rgba(34,197,94,0.15);
+    color: var(--green);
+    border: 1px solid rgba(34,197,94,0.3);
+  }
+  .btn-green:hover { background: rgba(34,197,94,0.25); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+  }
+  .btn-ghost:hover {
+    color: var(--text);
+    border-color: var(--text-muted);
+  }
+  .btn-danger {
+    background: rgba(255,75,75,0.1);
+    color: var(--urgent);
+    border: 1px solid rgba(255,75,75,0.2);
+  }
+  .btn-danger:hover { background: rgba(255,75,75,0.2); }
+
+  /* Log tab */
+  .log-search {
+    width: 100%;
+    max-width: 400px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    padding: 10px 14px;
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  .log-search:focus {
+    outline: none;
+    border-color: var(--primary);
+  }
+  .log-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .log-table th {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .log-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-muted);
+  }
+  .log-table tr:hover td { color: var(--text); }
+  .action-commented { color: var(--green); font-weight: 600; }
+  .action-skipped { color: var(--text-muted); }
+
+  /* Settings tab */
+  .settings-section {
+    margin-bottom: 28px;
+  }
+  .settings-label {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+  .settings-hint {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+  .settings-input {
+    width: 100%;
+    max-width: 500px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    padding: 10px 14px;
+    font-size: 14px;
+    font-family: inherit;
+  }
+  .settings-input:focus {
+    outline: none;
+    border-color: var(--primary);
+  }
+  textarea.settings-input {
+    min-height: 100px;
+    resize: vertical;
+  }
+  .slider-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .slider-container input[type="range"] {
+    width: 200px;
+    accent-color: var(--primary);
+  }
+  .slider-value {
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--primary);
+    min-width: 30px;
+  }
+  .settings-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+  }
+
+  /* Empty state */
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-muted);
+  }
+  .empty-state p {
+    font-size: 15px;
+    margin-top: 8px;
+  }
+
+  /* Loading overlay */
+  .loading {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-muted);
+  }
+  .spinner {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--border);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Toast notification */
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px 20px;
+    font-size: 13px;
+    color: var(--text);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.2s;
+    z-index: 100;
+  }
+  .toast.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .toast.success { border-color: var(--green); }
+  .toast.error { border-color: var(--urgent); }
+
+  @media (max-width: 640px) {
+    .header { padding: 16px; }
+    .content { padding: 16px; }
+    .tabs { padding: 0 16px; }
+    .header-stats { gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="warning-banner" id="warningBanner"></div>
+
+<div class="header">
+  <div class="header-title">
+    <span>Milo</span> Comment Intelligence
+  </div>
+  <div class="header-stats">
+    <div class="stat">
+      <div class="stat-value" id="lastRunDisplay">—</div>
+      <div class="stat-label">Last Run</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value" id="weeklyCountDisplay">0</div>
+      <div class="stat-label">Comments This Week</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value" id="queueSizeDisplay">0</div>
+      <div class="stat-label">Queue</div>
+    </div>
+  </div>
+</div>
+
+<div class="tabs">
+  <div class="tab active" data-tab="queue">Queue</div>
+  <div class="tab" data-tab="log">Log</div>
+  <div class="tab" data-tab="settings">Settings</div>
+</div>
+
+<div class="content">
+  <!-- Queue Tab -->
+  <div class="tab-content active" id="tab-queue">
+    <div id="urgentSection"></div>
+    <div id="standardSection"></div>
+    <div id="emptyQueue" class="empty-state" style="display:none;">
+      <p>No posts in queue. Next run will refresh.</p>
+    </div>
+  </div>
+
+  <!-- Log Tab -->
+  <div class="tab-content" id="tab-log">
+    <input type="text" class="log-search" id="logSearch" placeholder="Search log...">
+    <table class="log-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Author</th>
+          <th>Source</th>
+          <th>Score</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="logBody"></tbody>
+    </table>
+    <div id="emptyLog" class="empty-state" style="display:none;">
+      <p>No activity logged yet.</p>
+    </div>
+  </div>
+
+  <!-- Settings Tab -->
+  <div class="tab-content" id="tab-settings">
+    <div class="settings-section">
+      <div class="settings-label">GitHub Personal Access Token</div>
+      <div class="settings-hint">Stored locally in your browser only. Required for saving actions and settings.</div>
+      <input type="password" class="settings-input" id="settingsPAT" placeholder="ghp_...">
+    </div>
+
+    <div class="settings-section">
+      <div class="settings-label">GitHub Repository Owner</div>
+      <input type="text" class="settings-input" id="settingsOwner" placeholder="e.g. Tomp1234">
+    </div>
+
+    <div class="settings-section">
+      <div class="settings-label">GitHub Repository Name</div>
+      <input type="text" class="settings-input" id="settingsRepo" placeholder="e.g. claude-code">
+    </div>
+
+    <div class="settings-section">
+      <div class="settings-label">Score Threshold</div>
+      <div class="settings-hint">Minimum score for a post to appear in the queue (current: <span id="thresholdValue">6</span>)</div>
+      <div class="slider-container">
+        <input type="range" id="settingsThreshold" min="1" max="10" step="1" value="6">
+        <span class="slider-value" id="thresholdDisplay">6</span>
+      </div>
+    </div>
+
+    <div class="settings-section">
+      <div class="settings-label">Hashtags</div>
+      <div class="settings-hint">One per line, including the # symbol</div>
+      <textarea class="settings-input" id="settingsHashtags" placeholder="#powerbi&#10;#dataanalytics"></textarea>
+    </div>
+
+    <div class="settings-section">
+      <div class="settings-label">Competitor Pages</div>
+      <div class="settings-hint">JSON array — name, type (company/profile), url</div>
+      <textarea class="settings-input" id="settingsCompetitors" style="min-height:150px;font-family:monospace;font-size:12px;" placeholder='[{"name":"ThoughtSpot","type":"company","url":"..."}]'></textarea>
+    </div>
+
+    <div class="settings-actions">
+      <button class="btn btn-primary" id="saveSettingsBtn">Save Settings</button>
+      <span id="settingsStatus" style="color:var(--text-muted);font-size:13px;align-self:center;"></span>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function () {
+  // ── State ──
+  let config = {};
+  let scoredData = { last_run: null, posts: [] };
+  let logData = [];
+  const GITHUB_API = "https://api.github.com";
+  const DATA_BRANCH = "main";
+
+  // ── Helpers ──
+  function getPAT() {
+    return localStorage.getItem("gh_pat") || "";
+  }
+  function getOwner() {
+    return localStorage.getItem("gh_owner") || "";
+  }
+  function getRepo() {
+    return localStorage.getItem("gh_repo") || "";
+  }
+
+  function showToast(msg, type) {
+    const el = document.getElementById("toast");
+    el.textContent = msg;
+    el.className = "toast visible " + (type || "");
+    clearTimeout(el._timeout);
+    el._timeout = setTimeout(() => el.classList.remove("visible"), 3000);
+  }
+
+  function relativeTime(isoStr) {
+    if (!isoStr) return "—";
+    const diff = Date.now() - new Date(isoStr).getTime();
+    const mins = Math.floor(diff / 60000);
+    if (mins < 1) return "just now";
+    if (mins < 60) return mins + "m ago";
+    const hrs = Math.floor(mins / 60);
+    if (hrs < 24) return hrs + "h ago";
+    const days = Math.floor(hrs / 24);
+    return days + "d ago";
+  }
+
+  function escapeHtml(str) {
+    if (!str) return "";
+    const div = document.createElement("div");
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function truncate(str, len) {
+    if (!str) return "";
+    return str.length > len ? str.substring(0, len) + "..." : str;
+  }
+
+  // ── GitHub API ──
+  async function ghFetch(filePath) {
+    const owner = getOwner();
+    const repo = getRepo();
+    if (!owner || !repo) return null;
+
+    const url = `${GITHUB_API}/repos/${owner}/${repo}/contents/${filePath}?ref=${DATA_BRANCH}&_=${Date.now()}`;
+    const headers = { Accept: "application/vnd.github.v3+json" };
+    const pat = getPAT();
+    if (pat) headers.Authorization = `token ${pat}`;
+
+    const resp = await fetch(url, { headers });
+    if (!resp.ok) return null;
+    const data = await resp.json();
+    const content = atob(data.content.replace(/\n/g, ""));
+    return { parsed: JSON.parse(content), sha: data.sha };
+  }
+
+  async function ghWrite(filePath, content, sha, message) {
+    const pat = getPAT();
+    const owner = getOwner();
+    const repo = getRepo();
+    if (!pat || !owner || !repo) {
+      showToast("Set GitHub PAT, owner, and repo in Settings first", "error");
+      return false;
+    }
+
+    const url = `${GITHUB_API}/repos/${owner}/${repo}/contents/${filePath}`;
+    const body = {
+      message: message || `Update ${filePath}`,
+      content: btoa(unescape(encodeURIComponent(JSON.stringify(content, null, 2)))),
+      branch: DATA_BRANCH,
+    };
+    if (sha) body.sha = sha;
+
+    const resp = await fetch(url, {
+      method: "PUT",
+      headers: {
+        Authorization: `token ${pat}`,
+        Accept: "application/vnd.github.v3+json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+
+    if (!resp.ok) {
+      const err = await resp.json().catch(() => ({}));
+      console.error("GitHub API error:", err);
+      showToast("GitHub API error: " + (err.message || resp.status), "error");
+      return false;
+    }
+    return true;
+  }
+
+  // ── Data Loading ──
+  async function loadAllData() {
+    try {
+      const [scoredResult, logResult, configResult] = await Promise.all([
+        ghFetch("docs/data/scored_posts.json"),
+        ghFetch("docs/data/log.json"),
+        ghFetch("docs/data/config.json"),
+      ]);
+
+      if (scoredResult) {
+        scoredData = scoredResult.parsed;
+        scoredData._sha = scoredResult.sha;
+      }
+      if (logResult) {
+        logData = logResult.parsed;
+        logData._sha = logResult.sha;
+      }
+      if (configResult) {
+        config = configResult.parsed;
+        config._sha = configResult.sha;
+      }
+    } catch (err) {
+      console.error("Error loading data:", err);
+    }
+
+    renderAll();
+  }
+
+  // ── Weekly comment count ──
+  function getWeeklyCount() {
+    const now = new Date();
+    // Monday 00:00 GMT
+    const day = now.getUTCDay();
+    const daysSinceMonday = day === 0 ? 6 : day - 1;
+    const monday = new Date(now);
+    monday.setUTCDate(now.getUTCDate() - daysSinceMonday);
+    monday.setUTCHours(0, 0, 0, 0);
+
+    return logData.filter(
+      (e) => e.action === "commented" && new Date(e.timestamp) >= monday
+    ).length;
+  }
+
+  // ── Warning banner ──
+  function checkWarnings() {
+    const banner = document.getElementById("warningBanner");
+    if (!scoredData.last_run) {
+      banner.textContent = "No scoring data available — has the pipeline run yet?";
+      banner.classList.add("visible");
+      return;
+    }
+    const hoursSince = (Date.now() - new Date(scoredData.last_run).getTime()) / 3600000;
+    if (hoursSince > 13) {
+      banner.textContent = `Warning: Last run was ${Math.round(hoursSince)} hours ago. Pipeline may have failed.`;
+      banner.classList.add("visible");
+    } else {
+      banner.classList.remove("visible");
+    }
+  }
+
+  // ── Render ──
+  function renderAll() {
+    checkWarnings();
+
+    // Header stats
+    document.getElementById("lastRunDisplay").textContent = relativeTime(scoredData.last_run);
+    document.getElementById("weeklyCountDisplay").textContent = getWeeklyCount();
+
+    // Filter out posts already in log
+    const loggedUrls = new Set(logData.filter(e => e.post_url).map(e => e.post_url));
+    const activePosts = (scoredData.posts || []).filter(p => !loggedUrls.has(p.post_url));
+
+    document.getElementById("queueSizeDisplay").textContent = activePosts.length;
+
+    renderQueue(activePosts);
+    renderLog();
+    loadSettings();
+  }
+
+  function renderQueue(posts) {
+    const urgentPosts = posts.filter((p) => p.score >= 8);
+    const standardPosts = posts.filter((p) => p.score >= 6 && p.score < 8);
+
+    const urgentEl = document.getElementById("urgentSection");
+    const standardEl = document.getElementById("standardSection");
+    const emptyEl = document.getElementById("emptyQueue");
+
+    urgentEl.innerHTML = "";
+    standardEl.innerHTML = "";
+
+    if (posts.length === 0) {
+      emptyEl.style.display = "block";
+      return;
+    }
+    emptyEl.style.display = "none";
+
+    if (urgentPosts.length > 0) {
+      urgentEl.innerHTML =
+        `<div class="section-header">
+          <div class="section-dot urgent"></div>
+          <div class="section-title">URGENT</div>
+          <div class="section-count">(${urgentPosts.length})</div>
+        </div>` + urgentPosts.map((p) => renderCard(p, true)).join("");
+    }
+
+    if (standardPosts.length > 0) {
+      standardEl.innerHTML =
+        `<div class="section-header">
+          <div class="section-dot standard"></div>
+          <div class="section-title">Queue</div>
+          <div class="section-count">(${standardPosts.length})</div>
+        </div>` + standardPosts.map((p) => renderCard(p, false)).join("");
+    }
+
+    // Attach card event listeners
+    document.querySelectorAll(".draft-toggle").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const area = btn.parentElement.querySelector(".draft-area");
+        area.classList.toggle("open");
+        btn.textContent = area.classList.contains("open") ? "Hide draft" : "View draft";
+      });
+    });
+  }
+
+  function renderCard(post, isUrgent) {
+    const isCompetitor = post.source_type === "competitor";
+    const badgeClass = isCompetitor ? "badge-competitor" : (post.source_type === "hashtag" ? "badge-hashtag" : "badge-feed");
+    const badgeText = post.source_type.toUpperCase();
+    const cardClass = isCompetitor ? "card competitor" : (isUrgent ? "card urgent-card" : "card");
+
+    const icpHtml = (post.icp_commenters || [])
+      .filter((c) => c.title)
+      .map((c) => `<strong>${escapeHtml(c.name)}</strong> — ${escapeHtml(c.title)}${c.company ? " at " + escapeHtml(c.company) : ""}`)
+      .join("<br>");
+
+    const postId = escapeHtml(post.post_id || post.post_url);
+
+    return `<div class="card ${cardClass}" data-url="${escapeHtml(post.post_url)}">
+      <div class="card-top">
+        <div class="card-meta">
+          <span class="badge ${badgeClass}">${badgeText}</span>
+          <span class="author-name">${escapeHtml(post.author_name)}</span>
+          <span class="author-detail">${escapeHtml(post.author_title || "")}${post.author_company ? " at " + escapeHtml(post.author_company) : ""}</span>
+        </div>
+        <span class="score-badge">${post.score}/10</span>
+      </div>
+      <div class="post-snippet">${escapeHtml(truncate(post.post_text, 150))}</div>
+      <div class="angle">${escapeHtml(post.angle || "")}</div>
+      ${icpHtml ? `<div class="icp-list">ICP: ${icpHtml}</div>` : ""}
+      <div>
+        <button class="draft-toggle">View draft</button>
+        <div class="draft-area">
+          <textarea class="draft-textarea">${escapeHtml(post.draft_comment || "")}</textarea>
+        </div>
+      </div>
+      <div class="card-actions">
+        <a href="${escapeHtml(post.post_url)}" target="_blank" rel="noopener" class="btn btn-primary">Open post</a>
+        <button class="btn btn-green" onclick="window._dashboard.markCommented('${escapeHtml(post.post_url)}', '${escapeHtml(post.author_name)}', '${escapeHtml(post.source_name || post.source_type)}', ${post.score})">Mark as commented</button>
+        <button class="btn btn-ghost" onclick="window._dashboard.skip('${escapeHtml(post.post_url)}', '${escapeHtml(post.author_name)}', '${escapeHtml(post.source_name || post.source_type)}', ${post.score})">Skip</button>
+      </div>
+    </div>`;
+  }
+
+  function renderLog() {
+    const body = document.getElementById("logBody");
+    const emptyEl = document.getElementById("emptyLog");
+    const search = (document.getElementById("logSearch").value || "").toLowerCase();
+
+    let entries = [...logData].reverse();
+    if (search) {
+      entries = entries.filter(
+        (e) =>
+          (e.author || "").toLowerCase().includes(search) ||
+          (e.source || "").toLowerCase().includes(search) ||
+          (e.action || "").toLowerCase().includes(search)
+      );
+    }
+
+    if (entries.length === 0) {
+      body.innerHTML = "";
+      emptyEl.style.display = "block";
+      return;
+    }
+    emptyEl.style.display = "none";
+
+    body.innerHTML = entries
+      .map(
+        (e) => `<tr>
+        <td>${escapeHtml(e.timestamp ? new Date(e.timestamp).toLocaleDateString() + " " + new Date(e.timestamp).toLocaleTimeString() : "—")}</td>
+        <td>${escapeHtml(e.author || "—")}</td>
+        <td>${escapeHtml(e.source || "—")}</td>
+        <td>${e.score || "—"}</td>
+        <td class="${e.action === "commented" ? "action-commented" : "action-skipped"}">${escapeHtml(e.action || "—")}</td>
+      </tr>`
+      )
+      .join("");
+  }
+
+  // ── Actions ──
+  async function logAction(postUrl, author, source, score, action) {
+    const entry = {
+      post_url: postUrl,
+      author: author,
+      source: source,
+      score: score,
+      action: action,
+      timestamp: new Date().toISOString(),
+    };
+
+    // Get fresh log to avoid conflicts
+    const logResult = await ghFetch("docs/data/log.json");
+    let currentLog = logResult ? logResult.parsed : [];
+    const sha = logResult ? logResult.sha : logData._sha;
+
+    currentLog.push(entry);
+
+    const ok = await ghWrite("docs/data/log.json", currentLog, sha, `Log: ${action} — ${author}`);
+    if (ok) {
+      logData = currentLog;
+      showToast(`${action === "commented" ? "Marked as commented" : "Skipped"}: ${author}`, "success");
+      renderAll();
+    }
+  }
+
+  // ── Settings ──
+  function loadSettings() {
+    document.getElementById("settingsPAT").value = getPAT();
+    document.getElementById("settingsOwner").value = getOwner();
+    document.getElementById("settingsRepo").value = getRepo();
+    document.getElementById("settingsThreshold").value = config.score_threshold || 6;
+    document.getElementById("thresholdDisplay").textContent = config.score_threshold || 6;
+    document.getElementById("thresholdValue").textContent = config.score_threshold || 6;
+    document.getElementById("settingsHashtags").value = (config.hashtags || []).join("\n");
+    document.getElementById("settingsCompetitors").value = JSON.stringify(config.competitors || [], null, 2);
+  }
+
+  async function saveSettings() {
+    const pat = document.getElementById("settingsPAT").value.trim();
+    const owner = document.getElementById("settingsOwner").value.trim();
+    const repo = document.getElementById("settingsRepo").value.trim();
+    const threshold = parseInt(document.getElementById("settingsThreshold").value);
+    const hashtags = document.getElementById("settingsHashtags").value
+      .split("\n")
+      .map((h) => h.trim())
+      .filter(Boolean);
+
+    let competitors;
+    try {
+      competitors = JSON.parse(document.getElementById("settingsCompetitors").value);
+    } catch {
+      showToast("Invalid JSON in competitor pages field", "error");
+      return;
+    }
+
+    // Store PAT and repo info locally
+    localStorage.setItem("gh_pat", pat);
+    localStorage.setItem("gh_owner", owner);
+    localStorage.setItem("gh_repo", repo);
+
+    // Write config to repo
+    const newConfig = {
+      owner: owner,
+      repo: repo,
+      score_threshold: threshold,
+      hashtags: hashtags,
+      competitors: competitors,
+    };
+
+    // Get fresh sha
+    const configResult = await ghFetch("docs/data/config.json");
+    const sha = configResult ? configResult.sha : config._sha;
+
+    const ok = await ghWrite("docs/data/config.json", newConfig, sha, "Update dashboard config");
+    if (ok) {
+      config = newConfig;
+      showToast("Settings saved", "success");
+    }
+  }
+
+  // ── Event listeners ──
+  document.querySelectorAll(".tab").forEach((tab) => {
+    tab.addEventListener("click", () => {
+      document.querySelectorAll(".tab").forEach((t) => t.classList.remove("active"));
+      document.querySelectorAll(".tab-content").forEach((c) => c.classList.remove("active"));
+      tab.classList.add("active");
+      document.getElementById("tab-" + tab.dataset.tab).classList.add("active");
+    });
+  });
+
+  document.getElementById("logSearch").addEventListener("input", renderLog);
+
+  document.getElementById("settingsThreshold").addEventListener("input", (e) => {
+    document.getElementById("thresholdDisplay").textContent = e.target.value;
+    document.getElementById("thresholdValue").textContent = e.target.value;
+  });
+
+  document.getElementById("saveSettingsBtn").addEventListener("click", saveSettings);
+
+  // Expose actions globally for onclick handlers
+  window._dashboard = {
+    markCommented: (url, author, source, score) => logAction(url, author, source, score, "commented"),
+    skip: (url, author, source, score) => logAction(url, author, source, score, "skipped"),
+  };
+
+  // ── Init ──
+  loadAllData();
+})();
+</script>
+
+</body>
+</html>

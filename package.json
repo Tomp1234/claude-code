@@ -1,0 +1,12 @@
+{
+  "name": "linkedin-comment-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "LinkedIn Comment Intelligence Dashboard — scoring pipeline and GitHub Pages dashboard",
+  "scripts": {
+    "score": "node scripts/score-posts.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0"
+  }
+}

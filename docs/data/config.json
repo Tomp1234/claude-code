@@ -1,0 +1,22 @@
+{
+  "owner": "",
+  "repo": "",
+  "score_threshold": 6,
+  "hashtags": [
+    "#businessintelligence",
+    "#selfservicebi",
+    "#dataanalytics",
+    "#aisecurity",
+    "#chatgpt",
+    "#microsoftcopilot",
+    "#powerbi",
+    "#operationalexcellence"
+  ],
+  "competitors": [
+    { "name": "ThoughtSpot", "type": "company", "url": "" },
+    { "name": "Zenlytic", "type": "company", "url": "" },
+    { "name": "Zenlytic Founder", "type": "profile", "url": "" },
+    { "name": "WisdomAI", "type": "company", "url": "" },
+    { "name": "WisdomAI Founder", "type": "profile", "url": "" }
+  ]
+}

@@ -1,0 +1,40 @@
+name: Score LinkedIn Posts
+
+on:
+  # Runs at 7:35am and 1:05pm GMT on weekdays
+  # (5 minutes after Chrome agent scheduled runs to allow JSON commit)
+  schedule:
+    - cron: '35 7 * * 1-5'
+    - cron: '5 13 * * 1-5'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  score:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run scoring pipeline
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: npm run score
+
+      - name: Commit scored output
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/data/scored_posts.json
+          git diff --staged --quiet || git commit -m "Update scored posts — $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git push
