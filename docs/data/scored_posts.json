@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-03-20T14:04:13.218Z",
+  "last_run": "2026-03-23T08:31:36.415Z",
   "posts": [
     {
       "post_id": "urn:li:activity:7301234567894",
@@ -39,9 +39,9 @@
         "comment_value": 2,
         "reach_bonus": 1
       },
-      "angle": "High-scoring compliance pain post with three ICP decision-makers engaging — validate the 'explainability' problem as the real blocker, not AI itself, to signal deep domain understanding without pitching",
-      "draft_comment": "The ban isn't really about ChatGPT — it's about auditability. If you can't trace a number back to its source data, step by step, it doesn't matter how accurate it is. Regulators don't want confidence intervals, they want a paper trail. Wonder how many analytics teams are quietly in the same spot but haven't hit the regulator question yet.",
-      "scored_at": "2026-03-20T14:03:59.620Z"
+      "angle": "High-scoring post with three ICP prospects engaging — validate the compliance-driven trust gap, and add the insight that the problem isn't AI output but AI explainability, without pitching",
+      "draft_comment": "The ban makes complete sense to me. It's not really an AI problem — it's an audit trail problem. Most tools will give you a number, very few will tell you the story behind it in a way that holds up when someone senior starts asking questions. I wonder how many analytics teams are quietly in the same position but haven't had the regulator moment yet.",
+      "scored_at": "2026-03-23T08:31:20.875Z"
     },
     {
       "post_id": "urn:li:activity:7301234567890",
@@ -76,9 +76,9 @@
         "comment_value": 2,
         "reach_bonus": 1
       },
-      "angle": "ICP prospect COO at 140-person consulting firm hitting the trust wall with Power BI — validate the real problem (trust, not tooling), add a sharp observation about why dashboards fail adoption",
-      "draft_comment": "The 18 months wasn't wasted on the dashboard — it was wasted on the wrong problem. People don't stop using tools because they're hard to use, they stop using them because they don't trust where the numbers came from. Excel feels safer because everyone can see the formula. The real question is: what would it take for your finance team to trust a number they didn't personally calculate?",
-      "scored_at": "2026-03-20T14:04:00.818Z"
+      "angle": "ICP prospect COO at 140-person firm hitting the classic adoption wall — validate the trust problem specifically, add the insight that this is a data credibility issue not a tool issue",
+      "draft_comment": "The Excel thing isn't stubbornness — it's actually rational. People quote numbers in board meetings with their reputation on the line, and they'll only use a source they've personally stress-tested a hundred times. Power BI didn't fail, the trust-building process just never happened alongside the build. Did anyone on the finance team get involved before the dashboards went live, or was it more of a 'here's the thing we made' handover?",
+      "scored_at": "2026-03-23T08:31:19.284Z"
     },
     {
       "post_id": "urn:li:activity:7301234567898",
@@ -108,9 +108,9 @@
         "comment_value": 2,
         "reach_bonus": 1
       },
-      "angle": "ICP prospect (Director of Operations at Summit Group) engaging on dashboard overload — validate the 47-to-5 insight, add the 'why nobody looks' layer, no pitch",
-      "draft_comment": "47 KPIs is basically a confession that nobody made a hard call about what actually matters. The jump to 85% usage tells you everything — people don't avoid dashboards because they're lazy, they avoid them because opening it feels like homework with no answer key. The real question isn't which 5 metrics you picked, it's how long it took before someone was willing to kill the other 42.",
-      "scored_at": "2026-03-20T14:04:08.145Z"
+      "angle": "ICP prospect (Director of Operations at Summit Group) engaging with a post about dashboard bloat — validate the 47-to-5 insight, add the 'decision vs. reporting' distinction, never pitch",
+      "draft_comment": "The jump from 10% to 85% usage tells you everything — those 5 metrics were probably the ones someone was already pulling manually in a spreadsheet before the dashboard existed. The KPI sprawl problem is almost always a political one, not a technical one. Everyone adds their metric so they feel counted, and suddenly the thing that was supposed to help make decisions just becomes a way to cover your back. Curious how you got the buy-in to actually cut 42 of them — that's usually the harder fight than building the dashboard in the first place.",
+      "scored_at": "2026-03-23T08:31:28.734Z"
     },
     {
       "post_id": "urn:li:activity:7301234567891",
@@ -140,9 +140,9 @@
         "comment_value": 2,
         "reach_bonus": 0
       },
-      "angle": "ICP prospect (Innovation Director at NorthStar Retail) engaging on self-service BI chaos — validate the 'who owns truth' framing, add the insight that the tooling problem is actually a governance problem in disguise",
-      "draft_comment": "The 200 reports thing is so recognisable. Everyone's technically empowered but nobody's actually aligned — and that gap doesn't close by adding more licences or better dashboards. The real issue is usually that 'revenue' was never properly defined before anyone touched a tool. Who owned that definition before Power BI showed up?",
-      "scored_at": "2026-03-20T14:03:59.840Z"
+      "angle": "ICP prospect (Innovation Director at NorthStar Retail) engaging on self-service BI chaos — validate the 'who owns truth' framing, add the layer that the tool was never the problem",
+      "draft_comment": "The 200 reports thing is so real — and the three definitions of revenue is usually where it all falls apart in a meeting. The tool didn't cause that though. The underlying problem is that nobody decided who gets to call the final number before they handed out the licenses. Who in your org actually has that authority right now?",
+      "scored_at": "2026-03-23T08:31:19.759Z"
     },
     {
       "post_id": "urn:li:activity:7301234567902",
@@ -172,9 +172,9 @@
         "comment_value": 2,
         "reach_bonus": 0
       },
-      "angle": "CISO at a healthcare org reframing hallucinations as a security risk, with a CEO prospect engaging — validate the reframe, add the trust/verification layer insight, no pitch",
-      "draft_comment": "The framing here is exactly right and most analytics vendors aren't ready for it. A hallucinated number in a dashboard isn't just wrong — it's an unvetted input that bypassed every control you'd normally have. We obsess over who can access data but almost nothing about whether the AI's interpretation of it can be trusted. Who in your org is actually signing off on AI-generated outputs before they move upstream?",
-      "scored_at": "2026-03-20T14:04:07.960Z"
+      "angle": "CISO framing AI hallucinations as a security risk, with a CEO prospect engaging — validate the reframe, add the trust-chain insight that most analytics vendors are ignoring",
+      "draft_comment": "The security framing here is exactly right and most analytics vendors aren't ready for that conversation. The assumption has always been 'wrong number = fix the model' — but wrong number that reaches a CFO's deck unchallenged is a completely different category of problem. It's not just about the AI being wrong, it's about how many checkpoints between the model and the decision had any idea it could be wrong.",
+      "scored_at": "2026-03-23T08:31:27.249Z"
     },
     {
       "post_id": "urn:li:activity:7301234567904",
@@ -204,9 +204,9 @@
         "comment_value": 2,
         "reach_bonus": 0
       },
-      "angle": "ICP prospect (COO at Sterling Consulting) engaging with post about BI tools failing non-data users — validate the £200k waste pain, add the real diagnosis, no pitch",
-      "draft_comment": "That £200k number is painfully familiar. The dirty secret is most BI tools are essentially a second job — you have to learn the tool before the tool helps you do your actual job. And in a 50-person company, nobody has time for that second job. The question I keep asking is: who decided 'self-service' meant 'you can do it yourself if you know SQL'?",
-      "scored_at": "2026-03-20T14:04:13.218Z"
+      "angle": "ICP prospect (COO at Sterling Consulting) engaging with a post about BI tools failing non-technical users — validate the core dysfunction with a specific observation, add a reframe about who BI is actually designed for",
+      "draft_comment": "The £200k number stings but honestly the real cost is the 49 people who quietly stopped asking questions because the tool made them feel stupid. Most BI platforms are built to impress buyers in a demo, not to answer a Tuesday afternoon question from someone in ops who just needs a straight answer. The 'self-service' label is doing a lot of heavy lifting for what's basically a sophisticated dashboard only a data analyst can touch. Wonder how many renewals actually get driven by the one person who built it rather than the team who was supposed to benefit.",
+      "scored_at": "2026-03-23T08:31:36.414Z"
     },
     {
       "post_id": "urn:li:activity:7301234567893",
@@ -230,9 +230,9 @@
         "comment_value": 2,
         "reach_bonus": 0
       },
-      "angle": "Commercial Director at a mid-market industrial company hitting the classic 'whose numbers are right' wall — validate the culture diagnosis, add the layer about trust being the real casualty",
-      "draft_comment": "Three teams, three filter sets, one very uncomfortable CFO — that's not a data problem, that's a trust problem. And once the CFO stops believing the dashboard, it takes a long time to win that back, even after you've fixed the underlying issue. The culture point is right, but I'd add: the tools often make it worse by making it too easy to 'personalise' a view without realising you've just forked the truth. How long did it take to actually trace which team had it right?",
-      "scored_at": "2026-03-20T14:04:01.229Z"
+      "angle": "Commercial Director at a likely mid-market manufacturer has surfaced a classic data trust breakdown — validate the real diagnosis (governance, not culture) and add a sharper frame without pitching",
+      "draft_comment": "The CFO not trusting the dashboard is usually the symptom everyone sees. The cause is almost always that nobody agreed on the definitions before the data went in — what counts as revenue, which date field matters, does 'active customer' mean last 30 days or last 90. Culture gets blamed but it's really just that the unglamorous setup work got skipped. Does your team even have a shared glossary written down anywhere?",
+      "scored_at": "2026-03-23T08:31:20.333Z"
     },
     {
       "post_id": "urn:li:activity:7301234567896",
@@ -256,9 +256,9 @@
         "comment_value": 2,
         "reach_bonus": 0
       },
-      "angle": "IT Director diagnosing a real adoption failure with Copilot — validate the 'nobody knows what to ask' insight and reframe it as a data literacy problem, not a tool problem",
-      "draft_comment": "The 12% number doesn't surprise me at all. 'Nobody knows what to ask' is actually the whole game — it's not a Copilot problem, it's that most people don't have a clear enough mental model of their own data to know what question would even be useful. Shadow AI on phones is the symptom, but the disease is that the tool assumes a level of fluency that most orgs just haven't built yet. Do you think more training would move that needle, or is the interface itself the blocker?",
-      "scored_at": "2026-03-20T14:04:07.801Z"
+      "angle": "IT Director surfacing real enterprise AI adoption failure — validate the 'nobody knows what to ask' root cause with a sharper reframe, no pitch needed",
+      "draft_comment": "The 12% number is brutal but honestly pretty standard. The dirty secret is that most people don't have a clear enough question in their head before they open the tool — and if the tool can't help them figure out what to even ask, they just go back to whatever felt easier. Shadow AI filling that gap makes total sense. The question isn't really 'how do we get people to use Copilot more' — it's why do your analysts know what questions to bring to it and nobody else does?",
+      "scored_at": "2026-03-23T08:31:27.844Z"
     }
   ]
 }
