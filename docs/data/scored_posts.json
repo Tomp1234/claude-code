@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-03-30T14:43:41.641Z",
+  "last_run": "2026-03-31T08:39:25.357Z",
   "posts": [
     {
       "post_id": "urn:li:activity:7301234567894",
@@ -39,9 +39,9 @@
         "comment_value": 2,
         "reach_bonus": 1
       },
-      "angle": "High-score post from a CRO calling out AI explainability in regulated analytics, with three ICP prospects engaging — validate the compliance pain and add the 'explainability is the product' insight without pitching",
-      "draft_comment": "The 'GPT said so' answer is basically the new 'the spreadsheet says so' — except regulators have even less patience for it. The numbers being right isn't the problem. Not being able to show your working is. Wonder how many analytics teams are quietly in the same spot but haven't had the regulator conversation yet.",
-      "scored_at": "2026-03-30T14:43:23.593Z"
+      "angle": "High-scoring post from a CRO with multiple ICP prospects engaging — validate the auditability problem as the real blocker, add insight about explainability being a design choice not a feature",
+      "draft_comment": "The 'GPT said so' problem is real — but I'd argue it's not an AI problem, it's an auditability design problem. Most tools weren't built with the assumption that someone would need to reconstruct the reasoning chain under regulatory scrutiny. The number arriving on the dashboard is almost never the issue. It's the invisible steps between raw data and that number that kill you in a compliance conversation. How many teams do you think are sitting on the same risk right now without realising it?",
+      "scored_at": "2026-03-31T08:39:07.210Z"
     },
     {
       "post_id": "urn:li:activity:7301234567890",
@@ -76,41 +76,9 @@
         "comment_value": 2,
         "reach_bonus": 1
       },
-      "angle": "ICP prospect COO at 140-person firm hitting the classic adoption wall — validate the trust problem specifically, add the insight that dashboards don't fail on data quality, they fail on credibility",
-      "draft_comment": "18 months is such a familiar number. The dashboard isn't the problem — it's that nobody on the finance team was in the room when the logic was built, so when a number looks off they have no way to trust it wasn't. Excel at least has a paper trail they can follow with their own hands. Did anyone actually ask them what would make them trust it, or did the project just assume good data would be enough?",
-      "scored_at": "2026-03-30T14:43:22.832Z"
-    },
-    {
-      "post_id": "urn:li:activity:7301234567898",
-      "source_type": "hashtag",
-      "source_name": "#operationalexcellence",
-      "author_name": "Michael Torres",
-      "author_title": "VP Operations",
-      "author_company": "Atlas Logistics",
-      "post_text": "Unpopular opinion: most operational dashboards are vanity projects. We had 47 KPIs on our ops dashboard. Nobody looked at it. Cut it to 5 metrics that actually drive decisions. Usage went from 10% to 85%. The problem with BI isn't the tools — it's that we measure everything and understand nothing.",
-      "post_url": "https://www.linkedin.com/feed/update/urn:li:activity:7301234567898",
-      "timestamp": "2h ago",
-      "reaction_count": 198,
-      "comment_count": 56,
-      "is_suggested": true,
-      "icp_commenters": [
-        {
-          "name": "Claire Ashton",
-          "title": "Director of Operations",
-          "company": "Summit Group"
-        }
-      ],
-      "score": 9,
-      "score_breakdown": {
-        "topic_fit": 3,
-        "icp_engagement": 1,
-        "recency": 2,
-        "comment_value": 2,
-        "reach_bonus": 1
-      },
-      "angle": "VP Ops with ICP prospect (Director of Ops at Summit Group) engaging on dashboard bloat — validate the 47-to-5 insight with a sharp observation about why this keeps happening, no pitch",
-      "draft_comment": "47 KPIs is basically just expensive anxiety. The thing nobody talks about is how those dashboards get bloated in the first place — usually it's not bad intentions, it's that every stakeholder got to add their metric and nobody had the political capital to say no. So the dashboard becomes a graveyard of compromises. Curious what the fight looked like internally to get it down to 5?",
-      "scored_at": "2026-03-30T14:43:31.832Z"
+      "angle": "ICP prospect COO at 140-person firm hitting the classic adoption wall — validate that trust is the real product, not the dashboard",
+      "draft_comment": "The 18 months wasn't wasted on the wrong tool — it was spent on the wrong problem. A dashboard is just a claim until someone stakes their reputation on the numbers in it, and that only happens after a lot of quiet verification in spreadsheets first. The Excel exports aren't resistance, they're due diligence. Have you figured out yet what would actually make your finance team feel safe enough to stop double-checking?",
+      "scored_at": "2026-03-31T08:39:07.932Z"
     },
     {
       "post_id": "urn:li:activity:7301234567891",
@@ -140,9 +108,9 @@
         "comment_value": 2,
         "reach_bonus": 0
       },
-      "angle": "ICP prospect (Innovation Director at NorthStar Retail) engaging on self-service BI failure — validate the 'who owns truth' framing, add the governance-before-tooling insight, no pitch",
-      "draft_comment": "The 200 reports problem isn't really a Power BI problem — it's what happens when you hand out tools before anyone's agreed what 'good' looks like. Three definitions of revenue usually means three teams that never had to reconcile with each other until suddenly everyone could publish. The licence was the easy bit. Did anyone actually own the question before they started answering it?",
-      "scored_at": "2026-03-30T14:43:22.291Z"
+      "angle": "ICP prospect (Innovation Director at NorthStar Retail) engaging on self-service BI failure — validate the 'who owns the truth' pain point and add the insight that tooling is never the real problem, governance is",
+      "draft_comment": "200 reports is actually the most honest outcome of self-service BI — it just makes visible a fight that was always happening in spreadsheets and email threads. The tool didn't create three definitions of revenue. It just stopped hiding them. The real question isn't who owns the truth, it's whether anyone's incentivised to agree on it in the first place.",
+      "scored_at": "2026-03-31T08:39:06.287Z"
     },
     {
       "post_id": "urn:li:activity:7301234567902",
@@ -172,9 +140,9 @@
         "comment_value": 2,
         "reach_bonus": 0
       },
-      "angle": "CISO at a healthcare org reframing hallucinations as a security risk, with a CEO prospect engaging — validate the framing, add the trust infrastructure angle, no pitch",
-      "draft_comment": "The 'treat outputs like inputs' framing is exactly right, and I don't think most analytics vendors have caught up to it yet. The whole mental model has been 'AI is the source of truth' when really it should be 'AI is a user, and users get audited.' Most orgs have no chain of custody for how a number got into a report, let alone whether something generated it. Who owns that liability when the decision's already been made?",
-      "scored_at": "2026-03-30T14:43:32.008Z"
+      "angle": "CISO raising AI hallucinations as a material risk with a CEO prospect engaged — validate the security framing, add the trust layer insight, no pitch",
+      "draft_comment": "The framing shift from accuracy issue to security issue is exactly right — and most analytics vendors haven't caught up to it yet. A hallucinated number that stays in a dashboard is a bug. One that makes it into a board deck or a compliance report is a liability. How many orgs do you think are actually auditing AI-generated outputs before they act on them?",
+      "scored_at": "2026-03-31T08:39:14.417Z"
     },
     {
       "post_id": "urn:li:activity:7301234567904",
@@ -204,9 +172,9 @@
         "comment_value": 2,
         "reach_bonus": 0
       },
-      "angle": "ICP prospect (COO at Sterling Consulting) engaging with post about BI tools failing non-technical users — validate the systemic problem, add the specific mechanism behind it",
-      "draft_comment": "The £200k isn't even the worst part — it's the six months of 'we're nearly there' before anyone admits it. Most BI tools were designed to impress a data team in a demo, not help a COO answer a question on a Tuesday morning without filing a request. The self-service label gets slapped on anything with a drag-and-drop interface, but that's not the same as something a business person will actually open twice. Who's really buying these tools — the people who'll use them, or the people who evaluate them?",
-      "scored_at": "2026-03-30T14:43:41.641Z"
+      "angle": "ICP prospect (COO at Sterling Consulting) engaging with a post about BI tools failing non-data users — validate the core frustration with a specific observation, add the 'built for builders not readers' insight, no pitch",
+      "draft_comment": "That £200k number stings more when you realise it's not even the failure mode — it's the standard outcome. Most BI tools are designed to be impressive in a demo room, not useful on a Tuesday morning when a COO needs a quick answer without filing a request to someone in a hoodie. The 'self-service' label has been doing a lot of heavy lifting for a long time. What would it even mean for a tool to actually pass that test?",
+      "scored_at": "2026-03-31T08:39:25.357Z"
     },
     {
       "post_id": "urn:li:activity:7301234567893",
@@ -230,9 +198,41 @@
         "comment_value": 2,
         "reach_bonus": 0
       },
-      "angle": "Commercial Director at a mid-market manufacturer hits a classic data trust crisis — validate the cultural diagnosis, add the layer about agreement needing to come before tooling",
-      "draft_comment": "The filter problem is almost never about the filters. Three teams pulling different numbers usually means nobody agreed upfront on what the number was *supposed* to mean — and that conversation didn't happen because everyone assumed the tool would sort it out. Culture is right, but I'd go one step earlier: definitions. Who in your org actually owns the decision of what 'revenue this quarter' means?",
-      "scored_at": "2026-03-30T14:43:24.030Z"
+      "angle": "Commercial Director at a mid-market industrial firm naming a real governance pain point — validate the diagnosis, add the layer about trust being the actual casualty",
+      "draft_comment": "Three teams, three filters, one dataset — and now the CFO trusts none of it. That's the bit people skip over. It's not just a process problem, it's that every mismatched number chips away at whether anyone will actually rely on the dashboard next quarter. How long does it take your team to rebuild that trust once it's gone?",
+      "scored_at": "2026-03-31T08:39:06.330Z"
+    },
+    {
+      "post_id": "urn:li:activity:7301234567898",
+      "source_type": "hashtag",
+      "source_name": "#operationalexcellence",
+      "author_name": "Michael Torres",
+      "author_title": "VP Operations",
+      "author_company": "Atlas Logistics",
+      "post_text": "Unpopular opinion: most operational dashboards are vanity projects. We had 47 KPIs on our ops dashboard. Nobody looked at it. Cut it to 5 metrics that actually drive decisions. Usage went from 10% to 85%. The problem with BI isn't the tools — it's that we measure everything and understand nothing.",
+      "post_url": "https://www.linkedin.com/feed/update/urn:li:activity:7301234567898",
+      "timestamp": "2h ago",
+      "reaction_count": 198,
+      "comment_count": 56,
+      "is_suggested": true,
+      "icp_commenters": [
+        {
+          "name": "Claire Ashton",
+          "title": "Director of Operations",
+          "company": "Summit Group"
+        }
+      ],
+      "score": 7,
+      "score_breakdown": {
+        "topic_fit": 1,
+        "icp_engagement": 1,
+        "recency": 2,
+        "comment_value": 2,
+        "reach_bonus": 1
+      },
+      "angle": "ICP prospect (Director of Operations at Summit Group) engaging on dashboard overload — validate the 47-to-5 insight, add the 'why dashboards get bloated in the first place' layer",
+      "draft_comment": "47 KPIs is almost always a political problem wearing a data problem's clothes — everyone's team needs representation on the dashboard, so it grows until it means nothing. The jump from 10% to 85% usage just by cutting is honestly the most damning stat I've seen about how BI gets built. Makes you wonder how many dashboards are being 'maintained' right now that nobody's actually opened in six months.",
+      "scored_at": "2026-03-31T08:39:15.235Z"
     },
     {
       "post_id": "urn:li:activity:7301234567896",
@@ -256,9 +256,9 @@
         "comment_value": 2,
         "reach_bonus": 0
       },
-      "angle": "IT Director surfacing a real adoption failure with enterprise AI — validate the shadow AI insight and reframe the core problem as a question design issue, not a tool issue",
-      "draft_comment": "The 12% number is pretty telling but the shadow AI detail is the real thing here. People aren't lazy — they just know ChatGPT will give them a straight answer without needing a prompt engineering degree. The locked-down environment forces workarounds, and then IT gets blamed for low adoption on a tool that was never really designed around how people actually think about their work. How much of the 88% do you think would use *something* if it just answered questions in plain language without the friction?",
-      "scored_at": "2026-03-30T14:43:33.050Z"
+      "angle": "IT Director surfacing a real adoption failure with AI tooling — validate the shadow AI observation and reframe the root cause as a prompting/context problem, not a people problem",
+      "draft_comment": "The shadow AI thing is the part most vendors don't want to talk about. People aren't using ChatGPT on their phones because they're reckless — they're doing it because it actually answers their question without them needing a PhD in prompt engineering first. The 12% number isn't a training problem, it's a product feedback signal. What's your sense — does leadership see it that way, or is it still framed as user resistance?",
+      "scored_at": "2026-03-31T08:39:15.102Z"
     }
   ]
 }
